@@ -55,9 +55,15 @@ Em resumo, o Sistema de assistência para vestuário, o Cloud Wear, tem por obje
 | Código | Nome | Descrição |
 |:---  |:--- |:--- |
 | RF01 | Entrar no sistema | Usuários devem logar no sistema para acessar as funcionalidades relacionadas ao gerenciamento do guarda-roupa e geração de combinação de peças. |
-| RF02 | Cadastro de guarda-roupa | Administrador do sistema mantém o cadastro dos clientes e de seus guarda-roupas com suas peças cadastradas. |
-| RF03 | Gerenciamento do guarda-roupa | Usuários logados no sistema devem gerenciar suas roupas cadastradas. |
-| RF04 | Cadastro de usuários | Os usuários devem realizar o autocadastramento. |
+| RF02 | Sair do sistema | Os usuários podem sair do sistema. |
+| RF03 | Editar perfil | Podem editar as informações do seu perfil como (nome, foto e descrição). |
+| RF04 | Cadastro de guarda-roupa | O usuário pode cadastrar seu guarda roupas. |
+| RF05 | Visualizar roupas | Os usuários podem visualizar as roupas cadastradas. |
+| RF06 | Gerenciamento do guarda-roupa | Usuários logados no sistema podem adicionar ou remover roupas do guarda roupas. |
+| RF07 | Pontuar erros do sistema | Os usuários podem apontar erros no sistema que serão enviados aos admins. |
+| RF08 | Ler erros apontados | Os admins podem ler erros do sistema apontados pelos usuários e retornar uma resposta. |
+| RF09 | Manter cadastro de roupas | Os admins guardam o cadastro do guarda roupas dos usuários. |
+| RF10 | Manter cadastro de clientes | Os admins guardam o cadastro de cada cliente. |
 
 ### 9. Requisitos Não-funcionais
 
