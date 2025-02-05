@@ -1,11 +1,10 @@
 import json
 
 class Cliente:
-  def __init__(self, id : int, nome, email, fone, senha, adm : bool = False):
+  def __init__(self, id : int, nome, email, senha, adm : bool = False):
     self.set_id(id)
     self.set_nome(nome)
-    self.set_email(email)
-    self.set_fone(fone)
+    self.set_email(email) 
     self.set_senha(senha)
     self.set_adm(adm)
   
@@ -17,21 +16,17 @@ class Cliente:
     else: raise ValueError("id invalido")
 
   def set_nome(self, nome):
-    if nome: self.__nome = nome
+    if nome != None: self.__nome = nome     #if nome
     else: raise ValueError("nome invalido")
 
   def set_email(self, email):
     if not isinstance(email, str): raise ValueError("Email Invalido")
 
-    self.__email = email
-
-  def set_fone(self, fone):
-    if fone != None: self.__fone = fone
-    else: raise ValueError("Telefone invalido")
+    self.__email = email 
 
   def set_senha(self, senha):
-    if senha != None: self.__senha = senha
-    else: raise ValueError("Digite uma senha")  # talvez n precise disso
+    if len(senha) >= 6: self.__senha = senha
+    else: raise ValueError("Senha muito curta")
 
   def set_adm(self, adm):
     if isinstance(adm, bool): self.__adm = adm
@@ -50,11 +45,7 @@ class Cliente:
   
   @property
   def email(self):
-    return self.__email
-  
-  @property
-  def fone(self):
-    return self.__fone
+    return self.__email 
   
   @property
   def senha(self):
@@ -63,3 +54,6 @@ class Cliente:
   @property
   def adm(self):
     return self.__adm
+
+
+class Clientes(Modelo_JSON): #seguir a ideia de asaph
