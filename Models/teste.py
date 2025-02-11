@@ -10,7 +10,7 @@ adm = False
 
 cliente_prova = Cliente(id,nome,email,fone,senha,adm)
 
-roupa_prova = Roupa(1,"bella camicia",'branca','maglietta','strisce nere',2)
+roupa_prova = Roupa(1,"bella camicia",'branca',2,'strisce nere',2)
 
 Clientes.inserir(cliente_prova)
 Roupas.inserir(roupa_prova)

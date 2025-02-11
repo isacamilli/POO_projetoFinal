@@ -2,11 +2,11 @@ import json
 import os
 
 class Roupa:
-    def __init__(self,id:int, nome_roupa, cor,tipo,detalhes,id_cliente:int):
+    def __init__(self,id:int, nome_roupa, cor,tipo:int,detalhes,id_cliente:int):
         self.set_id(id)
         self.set_nomeRoupa(nome_roupa)
         self.set_cor(cor)
-        self.set_tipo(tipo)
+        self.set_idTipo(tipo)
         self.set_detalhes(detalhes)
         self.set_idCliente(id_cliente)
 
@@ -26,8 +26,8 @@ class Roupa:
         if cor != None : self.__cor = cor
         else: raise ValueError("Cor inválida")
 
-    def set_tipo(self,tipo_roupa):
-        if tipo_roupa != None : self.__tipo = tipo_roupa
+    def set_idTipo(self,tipo_roupa):
+        if isinstance(tipo_roupa,int) : self.__id_tipo = tipo_roupa
         else: raise ValueError("Tipo inválido")
 
     def set_detalhes(self,detalhes):
@@ -51,8 +51,8 @@ class Roupa:
         return self.__cor
     
     @property
-    def tipo(self):
-        return self.__tipo
+    def id_tipo(self):
+        return self.__id_tipo
     
     @property
     def detalhes(self):
@@ -119,7 +119,7 @@ class Roupas:
             with open("data/roupa.json", mode='r') as arquivo:
                 roupas_json = json.load(arquivo)
                 for obj in roupas_json:
-                    roupa = Roupa(obj["_Roupa__id"], obj["_Roupa__nome_roupa"],obj["_Roupa__cor"],obj["_Roupa__tipo"], obj["_Roupa__detalhes"],obj["_Roupa__id_cliente"])
+                    roupa = Roupa(obj["_Roupa__id"], obj["_Roupa__nome_roupa"],obj["_Roupa__cor"],obj["_Roupa__id_tipo"], obj["_Roupa__detalhes"],obj["_Roupa__id_cliente"])
                     cls.objetos.append(roupa)
         
         except FileNotFoundError:

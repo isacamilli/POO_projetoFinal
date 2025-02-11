@@ -1,0 +1,2 @@
+class Tipo_roupa:
+    
