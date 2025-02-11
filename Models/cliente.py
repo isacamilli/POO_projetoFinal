@@ -12,7 +12,7 @@ class Cliente:
     self.set_adm(adm)
 
   def __str__(self):
-    return f"{self.id} - {self.nome} - {self.email} - {self.fone}"
+    return f"{self.__id} - {self.__nome} - {self.__email} - {self.__fone}"
   
   def set_id(self, id):
     if isinstance(id, int):
@@ -21,7 +21,7 @@ class Cliente:
       raise ValueError('id invalido')
     
   def set_nome(self, nome):
-    if nome:
+    if nome != None:
       self.__nome = nome
     else:
       raise ValueError("nome nao pode ser invalido")
@@ -33,13 +33,16 @@ class Cliente:
     self.__email = email
     
   def set_fone(self, fone):
-    if fone:
+    if fone != None:
       self.__fone = fone
     else:
       raise ValueError("fone nao pode ser invalido")
     
   def set_senha(self, senha):
-    self.__senha = senha
+    if senha != None:
+      self.__senha = senha
+    else:
+      raise ValueError("senha nao pode ser vazia")
 
   def set_adm(self, adm):
     if isinstance(adm,bool):
@@ -134,6 +137,4 @@ class Clientes:
           c = Cliente(obj["_Cliente__id"], obj["_Cliente__nome"], obj["_Cliente__email"], obj["_Cliente__fone"], obj["_Cliente__senha"], obj["_Cliente__adm"])
           cls.objetos.append(c)    
 
-    except FileNotFoundError:
-     # raise ValueError("Arquivo clientes não encontrado")
-     pass
+    except FileNotFoundError: pass

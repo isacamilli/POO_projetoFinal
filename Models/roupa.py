@@ -11,7 +11,7 @@ class Roupa:
         self.set_idCliente(id_cliente)
 
     def __str__(self) -> str:
-        return f"{self.__id} - {self.__nome_roupa} - {self.__cor} - {self.__tipo} - {self.__detalhes} - {self.__id_cliente}"
+        return f"{self.__id} - {self.__nome_roupa} - {self.__cor} - {self.__id_tipo} - {self.__detalhes} - {self.__id_cliente}"
 
 
     def set_id(self,id):
