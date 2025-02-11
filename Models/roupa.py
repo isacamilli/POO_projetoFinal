@@ -1,3 +1,6 @@
+import json
+import os
+
 class Roupa:
     def __init__(self,id:int, nome_roupa, cor,tipo,detalhes,id_cliente:int):
         self.set_id(id)
@@ -100,3 +103,25 @@ class Roupas:
         if x != None:
             cls.objetos.remove(x)
             cls.salvar()
+
+    @classmethod
+    def salvar(cls):
+        if not os.path.exists('data'):
+            os.makedirs('data')
+
+        with open('data/roupa.json', mode='w') as arquivo:
+            json.dump(cls.objetos,arquivo,default = vars)
+
+    @classmethod
+    def abrir(cls):
+        cls.objetos = []
+        try:
+            with open("data/roupa.json", mode='r') as arquivo:
+                roupas_json = json.load(arquivo)
+                for obj in roupas_json:
+                    roupa = Roupa(obj["_Roupa__id"], obj["_Roupa__nome_roupa"],obj["_Roupa__cor"],obj["_Roupa__tipo"], obj["_Roupa__detalhes"],obj["_Roupa__id_cliente"])
+                    cls.objetos.append(roupa)
+        
+        except FileNotFoundError:
+           # raise ValueError("Arquivo roupas não encontrado")
+            pass
