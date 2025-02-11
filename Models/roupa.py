@@ -7,6 +7,9 @@ class Roupa:
         self.set_detalhes(detalhes)
         self.set_idCliente(id_cliente)
 
+    def __str__(self) -> str:
+        return f"{self.__id} - {self.__nome_roupa} - {self.__cor} - {self.__tipo} - {self.__detalhes} - {self.__id_cliente}"
+
 
     def set_id(self,id):
         if isinstance(id,int): self.__id = id
@@ -59,5 +62,41 @@ class Roupa:
 class Roupas:
     objetos = []
 
-    def inserir(slef,obj):
-        pass
+    @classmethod
+    def inserir(cls,obj):
+        cls.abrir()
+        id = 0
+        for x in cls.objetos:
+            if x.id > id : id = x.id
+
+        obj.set_id(id+1)
+
+        cls.objetos.append(obj)
+        cls.salvar()
+
+    @classmethod
+    def listar(cls):
+        cls.abrir()
+        return cls.objetos
+    
+    @classmethod 
+    def listar_id(cls,id):
+        cls.abrir()
+        for x in cls.objetos:
+            if x.id == id: return x
+        return None
+    
+    @classmethod
+    def atualizar(cls,obj):
+        x = cls.listar_id(obj.id)
+        if x != None:
+            cls.objetos.remove(x)
+            cls.objetos.append(obj)
+            cls.salvar()
+
+    @classmethod
+    def excluir(cls,obj):
+        x = cls.listar_id(obj.id)
+        if x != None:
+            cls.objetos.remove(x)
+            cls.salvar()
