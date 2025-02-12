@@ -32,7 +32,7 @@ class Periodo_Clima:
     return self.__periodo
 
   def clima_cidade(self):
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={self.cidade}&appid=c5c2e778103223f1d989ac03ad6fcaee&units=metric&lang=pt_br"
+    url = f"http://api.openweathermap.org/../../data/2.5/weather?q={self.cidade}&appid=c5c2e778103223f1d989ac03ad6fcaee&units=metric&lang=pt_br"
     resposta = requests.get(url)
 
     #print(f"Status code da API: {resposta.status_code}")
@@ -79,7 +79,7 @@ class climas:
   objetos = []
 
   @staticmethod
-  def salvar_clima_em_json(periodo_clima, filename="data/clima.json"):
+  def salvar_clima_em_json(periodo_clima, filename="../../data/clima.json"):
     directory = os.path.dirname(filename)
     if not os.path.exists(directory):
         os.makedirs(directory)

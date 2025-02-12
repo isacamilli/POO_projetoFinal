@@ -118,19 +118,19 @@ class Clientes:
 
   @classmethod
   def salvar(cls):
-    if not os.path.exists('data'):
-        os.makedirs('data')
+    if not os.path.exists('../../data'):
+        os.makedirs('../../data')
     # open - cria e abre o arquivo clientes.json
     # vars - converte um objeto em um dicionário
     # dump - pega a lista de objetos e salva no arquivo
-    with open("data/cliente.json", mode="w") as arquivo:
+    with open("../../data/cliente.json", mode="w") as arquivo:
       json.dump(cls.objetos, arquivo, default = vars)
 
   @classmethod
   def abrir(cls):
     cls.objetos = []
     try:
-      with open("data/cliente.json", mode="r") as arquivo:
+      with open("../../data/cliente.json", mode="r") as arquivo:
         clientes_json = json.load(arquivo)
         for obj in clientes_json:
           c = Cliente(obj["_Cliente__id"], obj["_Cliente__nome"], obj["_Cliente__email"], obj["_Cliente__fone"], obj["_Cliente__senha"], obj["_Cliente__adm"])
