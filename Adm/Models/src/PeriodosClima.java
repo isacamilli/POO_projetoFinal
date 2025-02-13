@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PeriodoClima extends CRUD<PeriodoClima> {
+public class PeriodosClima extends CRUD<PeriodoClima> {
 
     @Override
     public void salvar() {

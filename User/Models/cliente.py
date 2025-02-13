@@ -63,7 +63,7 @@ class Cliente:
   
   @property
   def fone(self):
-    return self.fone
+    return self.__fone
   
   @property
   def senha(self):
@@ -72,6 +72,10 @@ class Cliente:
   @property
   def adm(self):
     return self.__adm
+
+  
+  def __str__(self):
+    return f"{self.id} - {self.nome} - {self.email} - {self.fone}"
     
 
 class Clientes:
@@ -118,19 +122,19 @@ class Clientes:
 
   @classmethod
   def salvar(cls):
-    if not os.path.exists('../../data'):
-        os.makedirs('../../data')
+    if not os.path.exists('Data'):
+        os.makedirs('Data')
     # open - cria e abre o arquivo clientes.json
     # vars - converte um objeto em um dicionário
     # dump - pega a lista de objetos e salva no arquivo
-    with open("../../data/cliente.json", mode="w") as arquivo:
+    with open("Data/cliente.json", mode="w") as arquivo:
       json.dump(cls.objetos, arquivo, default = vars)
 
   @classmethod
   def abrir(cls):
     cls.objetos = []
     try:
-      with open("../../data/cliente.json", mode="r") as arquivo:
+      with open("Data/cliente.json", mode="r") as arquivo:
         clientes_json = json.load(arquivo)
         for obj in clientes_json:
           c = Cliente(obj["_Cliente__id"], obj["_Cliente__nome"], obj["_Cliente__email"], obj["_Cliente__fone"], obj["_Cliente__senha"], obj["_Cliente__adm"])

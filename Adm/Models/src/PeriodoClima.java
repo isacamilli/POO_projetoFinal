@@ -6,7 +6,7 @@ import java.net.http.HttpResponse;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class PeriodoClima {
+public class PeriodoClima implements Inter {
   private String cidade;
   private String pais;
   private String clima;

@@ -1,9 +1,9 @@
-public class Local {
+public class Local implements Inter {
   private int id;
   private String cidade;
 
   public Local(int id, String cidade) {
-    setId(id)
+    setId(id);
     setCidade(cidade);
   }
 
@@ -29,7 +29,7 @@ public class Local {
   }
 
   public int getId(){
-    return this.id
+    return this.id;
   }
 
   public String getCidade() {

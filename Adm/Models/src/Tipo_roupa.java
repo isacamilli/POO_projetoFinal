@@ -1,4 +1,4 @@
-public class Tipo_roupa {
+public class Tipo_roupa implements Inter{
   private int id;
   private String nome;
   private String descricao;

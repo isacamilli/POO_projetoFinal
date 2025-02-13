@@ -2,11 +2,11 @@ package src;
 
 import java.util.List;
 
-public class Item_roupa {
+public class Item_roupa implements Inter {
     private int id;
     private List<Integer> listaIdRoupas;
 
-    public ItemRoupa(int id, List<Integer> listaIdRoupas) {
+    public Item_roupa(int id, List<Integer> listaIdRoupas) {
         setId(id);
         setLista(listaIdRoupas);
     }

@@ -1,4 +1,4 @@
-public class Roupa {
+public class Roupa implements Inter {
   private int id;
   private String nomeRoupa;
   private String cor;

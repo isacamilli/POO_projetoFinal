@@ -3,7 +3,7 @@ package src;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class CRUD<T> {
+public abstract class CRUD<T extends Inter> {
     protected List<T> objetos = new ArrayList<>();
 
     public void inserir(T obj) {
