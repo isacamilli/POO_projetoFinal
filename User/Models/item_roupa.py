@@ -8,7 +8,15 @@ class Item_roupa:
         self.set_lista(lista_id_roupas)
 
     def __str__(self):
-        return f"{self.__id} - {self.__lista_id_roupas}"
+        return f"""Item_roupa:
+                id={self.__id}
+                , lista_id_roupas={self.__lista_id_roupas}"""
+
+    def to_dict(self):
+        return {
+            'id': self.__id,
+            'lista_id_roupas': self.__lista_id_roupas,
+            }
 
     def set_id(self,id):
         if isinstance(id,int): self.__id = id
@@ -94,8 +102,10 @@ class Itens_roupas:
         if not os.path.exists('Data'):
             os.makedirs('Data')
 
-        with open('Data/item_roupa.json', mode='w') as arquivo:
-            json.dump(cls.objetos,arquivo,default=vars)
+        with open("Data/item_roupa.json", mode="w") as arquivo:
+            dados = [Item_roupa.to_dict() for Item_roupa in cls.objetos]
+            print(dados)
+            json.dump(dados, arquivo)
 
     @classmethod
     def abrir(cls):
@@ -104,7 +114,7 @@ class Itens_roupas:
             with open("Data/item_roupa.json", mode='r') as arquivo:
                 item_roupa_json = json.load(arquivo)
                 for obj in item_roupa_json:
-                    item_roupa = Item_roupa(obj["_Item_roupa__id"], obj["_Item_roupa__lista_id_roupas"])
+                    item_roupa = Item_roupa(obj["id"], obj["lista_id_roupas"])
                     cls.objetos.append(item_roupa)
 
         except FileNotFoundError:

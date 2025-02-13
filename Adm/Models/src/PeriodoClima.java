@@ -25,10 +25,9 @@ public class PeriodoClima implements Inter{
 
   @Override
   public String toString() {
-    return String.format(
-        "Id: %d - Cidade: %s|%s - Data: %s - Clima: %s - Período: %s - Temperatura: %.2f°C - Sensação Térmica: %.2f°C", id,
-        cidade, pais, data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), clima, periodo, temperatura,
-        sensacaoTermica);
+    return "Periodo_clima:" +
+             "id=" + this.id +
+             ", cidade=" + this.cidade;
   }
 
   public Map<String, Object> toDict() {

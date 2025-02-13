@@ -8,9 +8,11 @@ class Periodo_Clima:
     self.set_id(id)
     self.set_cidade(cidade)
 
-  def __str__(self):
-    return f"Cidade: {self.cidade}|{self.pais} - Data: {self.data.strftime('%d/%m/%Y %H:%M')} - Clima: {self.clima} - Período: {self.periodo} - Temperatura: {self.temperatura}°C - Sensação Térmica: {self.sensacao_termica}°C"
-  
+  def __str__(self) -> str:
+    return f"""Periodo_clima:
+              id={self.__id} 
+              , cidade= {self.__cidade}"""
+
   def set_id(self,id):
      if isinstance(id,int): self.__id = id
      else: raise ValueError("id clima inválido")

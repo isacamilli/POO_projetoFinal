@@ -11,6 +11,19 @@ public class Item_roupa implements Inter {
         setId(id);
         setLista(lista_id_roupas);
     }
+    
+    public String toString() {
+        return "Item_roupa:" +
+            "id="+ this.id+
+            ", lista_id_roupas=" + this.lista_id_roupas;
+    }
+
+    public Map<String, Object> toDict() {
+        Map<String, Object> dict = new HashMap<>();
+        dict.put("id", this.id);
+        dict.put("lista_id_roupas", this.lista_id_roupas);
+        return dict;
+    }
 
     public void setId(int id) {
         if (id < 0) {
@@ -36,14 +49,4 @@ public class Item_roupa implements Inter {
         return this.lista_id_roupas;
     }
 
-    public String toString() {
-        return String.format("%d - %s", this.id, this.lista_id_roupas);
-    }
-
-    public Map<String, Object> toDict() {
-        Map<String, Object> dict = new HashMap<>();
-        dict.put("id", this.id);
-        dict.put("lista_id_oupas", this.lista_id_roupas);
-        return dict;
-    }
 }

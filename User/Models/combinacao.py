@@ -8,10 +8,10 @@ class Combinacao:
     self.set_clima(clima)
 
   def __str__(self) -> str:
-    return f"Combinação:
+    return f"""Combinação:
               id={self.__id} 
               , clima= {self.__clima}
-              , id_itens= {self.__id_itens_roupas}"
+              , id_itens= {self.__id_itens_roupas}"""
   
   def to_dict(self):
     return {
@@ -101,8 +101,12 @@ class Combinacoes:
       if not os.path.exists('Data'):
           os.makedirs('Data')
 
-      with open('Data/combinacao.json', mode='w') as arquivo:
-          json.dump(cls.objetos,arquivo,default=vars)
+      # with open('Data/combinacao.json', mode='w') as arquivo:
+      #     json.dump(cls.objetos,arquivo,default=vars)
+      with open("Data/combinacao.json", mode="w") as arquivo:
+        dados = [Combinacao.to_dict() for Combinacao in cls.objetos]
+        print(dados)
+        json.dump(dados, arquivo)
 
   @classmethod
   def abrir(cls):

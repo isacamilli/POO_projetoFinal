@@ -7,8 +7,16 @@ class Local:
     self.set_cidade(cidade)
 
   def __str__(self):
-    return f"{self.__id} - {self.__cidade}"
+    return f"""Local:
+    id={self.__id}
+    , cidade={self.__cidade}"""
   
+  def to_dict(self):
+    return {
+        'id': self.__id,
+        'cidade': self.__cidade,
+        }
+
   def set_id(self,id):
     if isinstance(id,int): self.__id = id
     else: raise ValueError("id local invalido")
@@ -98,7 +106,7 @@ class Locais:
       with open("Data/local.json", mode="r") as arquivo:
         locais_json = json.load(arquivo)
         for obj in locais_json:
-          c = Local(obj["_local__id"], obj["_local__cidade"])
+          c = Local(obj["id"], obj["cidade"])
           cls.objetos.append(c)    
 
     except FileNotFoundError: pass

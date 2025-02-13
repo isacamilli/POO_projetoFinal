@@ -2,22 +2,22 @@ import json
 import os
 
 class Roupa:
-    def __init__(self,id:int, nome_roupa, cor,tipo:int,detalhes,id_cliente:int):
+    def __init__(self,id:int, nome_roupa, cor,tipo:int,detalhes,id_Roupa:int):
         self.set_id(id)
         self.set_nomeRoupa(nome_roupa)
         self.set_cor(cor)
         self.set_idTipo(tipo)
         self.set_detalhes(detalhes)
-        self.set_idCliente(id_cliente)
+        self.set_idRoupa(id_Roupa)
 
     def __str__(self) -> str:
-        return f"Roupa:
+        return f"""Roupa:
                   id={self.__id} 
                  , nome_roupa= {self.__nome_roupa} 
                  , cor= {self.__cor} 
                  , id_tipo= {self.__id_tipo} 
                  , detalhes= {self.__detalhes} 
-                 , id_cliente= {self.__id_cliente}"
+                 , id_Roupa= {self.__id_Roupa}"""
 
     def to_dict(self):
         return {
@@ -26,7 +26,7 @@ class Roupa:
             'cor': self.__cor,
             'id_tipo': self.__id_tipo,
             'detalhes': self.__detalhes,
-            'id_cliente': self.__id_cliente
+            'id_Roupa': self.__id_Roupa
             }
 
 
@@ -50,9 +50,9 @@ class Roupa:
         if detalhes != None: self.__detalhes = detalhes
         else: raise ValueError("Formato dos detalhes inválido")
 
-    def set_idCliente(self,id_cliente):
-        if isinstance(id_cliente,int): self.__id_cliente = id_cliente
-        else: raise ValueError("id cliente na área roupa inválido")
+    def set_idRoupa(self,id_Roupa):
+        if isinstance(id_Roupa,int): self.__id_Roupa = id_Roupa
+        else: raise ValueError("id Roupa na área roupa inválido")
 
     @property
     def id(self):
@@ -75,8 +75,8 @@ class Roupa:
         return self.__detalhes
     
     @property
-    def id_cliente(self):
-        return self.__id_cliente
+    def id_Roupa(self):
+        return self.__id_Roupa
 
 class Roupas:
     objetos = []
@@ -125,9 +125,10 @@ class Roupas:
         if not os.path.exists('Data'):
             os.makedirs('Data')
 
-        with open('Data/roupa.json', mode='w') as arquivo:
-            json.dump(cls.objetos,arquivo,default = vars)
-
+        with open("Data/roupa.json", mode="w") as arquivo:
+            dados = [Roupa.to_dict() for Roupa in cls.objetos]
+            print(dados)
+            json.dump(dados, arquivo)
     @classmethod
     def abrir(cls):
         cls.objetos = []
@@ -135,7 +136,7 @@ class Roupas:
             with open("Data/roupa.json", mode='r') as arquivo:
                 roupas_json = json.load(arquivo)
                 for obj in roupas_json:
-                    roupa = Roupa(obj["_Roupa__id"], obj["_Roupa__nome_roupa"],obj["_Roupa__cor"],obj["_Roupa__id_tipo"], obj["_Roupa__detalhes"],obj["_Roupa__id_cliente"])
+                    roupa = Roupa(obj["id"], obj["nome_roupa"],obj["cor"],obj["id_tipo"], obj["detalhes"],obj["id_Roupa"])
                     cls.objetos.append(roupa)
         
         except FileNotFoundError:

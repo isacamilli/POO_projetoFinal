@@ -8,7 +8,17 @@ class Tipo_roupa:
         self.set_descricao(descricao)
 
     def __str__(self):
-        return f"{self.__id} - {self.__nome} - {self.__descricao}"
+        return f"""Tipo_roupa:
+        id={self.__id}
+        , nome={self.__nome}
+        , descricao={self.__descricao}"""
+    
+    def to_dict(self):
+        return {
+            'id': self.__id,
+            'nome': self.__nome,
+            'descricao': self.__descricao
+            }
     
     def set_id(self,id):
         if isinstance(id,int): self.__id = id
@@ -80,8 +90,10 @@ class Tipos_roupas:
     def salvar(cls):
         if not os.path.exists("Data"):
             os.makedirs('Data')
-        with open("Data/tipo_roupa.json", mode='w') as arquivo:
-            json.dump(cls.objetos, arquivo, default = vars)
+        with open("Data/tipo_roupa.json", mode="w") as arquivo:
+            dados = [Tipo_roupa.to_dict() for Tipo_roupa in cls.objetos]
+            print(dados)
+            json.dump(dados, arquivo)
 
     @classmethod
     def abrir(cls):
@@ -90,7 +102,7 @@ class Tipos_roupas:
             with open("Data/tipo_roupa.json") as arquivo:
                 tipo_json = json.load(arquivo)
                 for obj in tipo_json:
-                    t_r = Tipo_roupa(obj["_Tipo_roupa__id"],obj["_Tipo_roupa__nome"],obj["_Tipo_roupa__descricao"])
+                    t_r = Tipo_roupa(obj["id"],obj["nome"],obj["descricao"])
                     cls.objetos.append(t_r)
         
         except FileNotFoundError: pass
