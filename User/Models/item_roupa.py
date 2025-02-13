@@ -7,6 +7,9 @@ class Item_roupa:
         self.set_id(id)
         self.set_lista(lista_id_roupas)
 
+    def __str__(self):
+        return f"{self.__id} - {self.__lista_id_roupas}"
+
     def set_id(self,id):
         if isinstance(id,int): self.__id = id
         else: raise ValueError("ID item roupas inválido")
@@ -82,17 +85,17 @@ class Itens_roupas:
 
     @classmethod
     def salvar(cls):
-        if not os.path.exists('../../data'):
-            os.makedirs('../../data')
+        if not os.path.exists('data'):
+            os.makedirs('data')
 
-        with open('../../data/item_roupa.json', mode='w') as arquivo:
+        with open('data/item_roupa.json', mode='w') as arquivo:
             json.dump(cls.objetos,arquivo,default=vars)
 
     @classmethod
     def abrir(cls):
         cls.objetos = []
         try:
-            with open("../../data/item_roupa.json", mode='r') as arquivo:
+            with open("data/item_roupa.json", mode='r') as arquivo:
                 item_roupa_json = json.load(arquivo)
                 for obj in item_roupa_json:
                     item_roupa = Item_roupa(obj["_Item_roupa__id"], obj["_Item_roupa__lista_id_roupas"])
