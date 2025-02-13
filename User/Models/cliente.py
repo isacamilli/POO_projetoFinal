@@ -12,6 +12,17 @@ class Cliente:
 
   def __str__(self):
     return f"{self.__id} - {self.__nome} - {self.__email} - {self.__fone}"
+
+
+  def to_dict(self):
+    return {
+        'id': self.__id,
+        'nome': self.__nome,
+        'email': self.__email,
+        'fone': self.__fone,
+        'senha': self.__senha,
+        'adm': self.__adm
+        }
   
   def set_id(self, id):
     if isinstance(id, int):
@@ -128,7 +139,9 @@ class Clientes:
     # vars - converte um objeto em um dicionário
     # dump - pega a lista de objetos e salva no arquivo
     with open("Data/cliente.json", mode="w") as arquivo:
-      json.dump(cls.objetos, arquivo, default = vars)
+      dados = [Cliente.to_dict() for Cliente in cls.objetos]
+      print(dados)
+      json.dump(dados, arquivo)
 
   @classmethod
   def abrir(cls):
@@ -137,7 +150,7 @@ class Clientes:
       with open("Data/cliente.json", mode="r") as arquivo:
         clientes_json = json.load(arquivo)
         for obj in clientes_json:
-          c = Cliente(obj["_Cliente__id"], obj["_Cliente__nome"], obj["_Cliente__email"], obj["_Cliente__fone"], obj["_Cliente__senha"], obj["_Cliente__adm"])
+          c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"], obj["senha"], obj["adm"])
           cls.objetos.append(c)    
 
     except FileNotFoundError: pass

@@ -79,7 +79,7 @@ class climas:
   objetos = []
 
   @staticmethod
-  def salvar_clima_em_json(periodo_clima, filename="../../data/clima.json"):
+  def salvar_clima_em_json(periodo_clima, filename="Data/clima.json"):
     directory = os.path.dirname(filename)
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -106,14 +106,3 @@ class climas:
 
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(clima_dict, f, ensure_ascii=False, indent=4)
-
-# Teste
-# def mostrar_informacoes(cidade):
-#   periodo_clima = Periodo_Clima(cidade)
-#   periodo_clima.clima_cidade()  # Obtém as informações de clima da cidade
-#   print(periodo_clima)  # Exibe as informações do clima e período
-#   climas.salvar_clima_em_json(periodo_clima)  # Salva os dados em clima.json
-
-# # Alterar a cidade conforme o usuário
-# cidade = input("Digite o nome da cidade: ")
-# mostrar_informacoes(cidade)

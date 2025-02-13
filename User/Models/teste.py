@@ -4,10 +4,10 @@ from tipo_roupa import Tipo_roupa,Tipos_roupas
 from item_roupa import Item_roupa,Itens_roupas
 
 #teste cliente
-#cliente1 = Cliente(2,"isa",'email',1234,'senha',False)
-#Clientes.inserir(cliente1)
-# for i in Clientes.listar():
-#   print(i)
+cliente1 = Cliente(2,"gust",'email',1234,'senha',False)
+Clientes.inserir(cliente1)
+for i in Clientes.listar():
+  print(i)
 
 # roupa1 = Roupa(1,"mizuno",'preta',2,'strisce bianche',1)
 # roupa2 = Roupa(5,"maglietta",'azzura',1,'tank top',1)

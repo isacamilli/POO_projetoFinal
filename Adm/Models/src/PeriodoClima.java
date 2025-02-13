@@ -6,7 +6,8 @@ import java.net.http.HttpResponse;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class PeriodoClima {
+public class PeriodoClima implements Inter{
+  private int id;
   private String cidade;
   private String pais;
   private String clima;
@@ -15,16 +16,26 @@ public class PeriodoClima {
   private double temperatura;
   private double sensacaoTermica;
 
-  public PeriodoClima(String cidade) {
+  public PeriodoClima(int id, String cidade) {
+    setId(id);
     setCidade(cidade);
   }
 
   @Override
   public String toString() {
     return String.format(
-        "Cidade: %s|%s - Data: %s - Clima: %s - Período: %s - Temperatura: %.2f°C - Sensação Térmica: %.2f°C",
+        "Id: %d - Cidade: %s|%s - Data: %s - Clima: %s - Período: %s - Temperatura: %.2f°C - Sensação Térmica: %.2f°C", id,
         cidade, pais, data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), clima, periodo, temperatura,
         sensacaoTermica);
+  }
+
+  public void setId(int id){
+    if (id > 0 ){
+      this.id = id;
+    }
+    else{
+      throw new IllegalArgumentException("id clima inválido");
+    }
   }
 
   public void setCidade(String cidade) {
@@ -32,6 +43,10 @@ public class PeriodoClima {
       throw new IllegalArgumentException("Cidade inválida");
     }
     this.cidade = cidade;
+  }
+
+  public int getId() {
+    return this.id;
   }
 
   public String getCidade() {

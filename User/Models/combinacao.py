@@ -106,19 +106,3 @@ class Combinacoes:
 
         except FileNotFoundError:
             pass
-
-# Exemplo
-# combinacao1 = Combinacao(1, "primavera", 101)
-# combinacao2 = Combinacao(2, "verão", 102)
-# combinacao3 = Combinacao(3, "outono", 103)
-# combinacao4 = Combinacao(4, "inverno", 104)
-
-# combinacao1.verificar_ids()
-# combinacao2.verificar_ids()
-# combinacao3.verificar_ids()
-# combinacao4.verificar_ids()
-
-# Combinacoes.salvar_combinacao(combinacao1)
-# Combinacoes.salvar_combinacao(combinacao2)
-# Combinacoes.salvar_combinacao(combinacao3)
-# Combinacoes.salvar_combinacao(combinacao4)
