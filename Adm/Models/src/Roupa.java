@@ -7,12 +7,12 @@ public class Roupa {
   private int idCliente;
 
   public Roupa(int id, String nomeRoupa, String cor, int idTipo, String detalhes, int idCliente) {
-    this.setId(id);
-    this.setNomeRoupa(nomeRoupa);
-    this.setCor(cor);
-    this.setIdTipo(idTipo);
-    this.setDetalhes(detalhes);
-    this.setIdCliente(idCliente);
+    setId(id);
+    setNomeRoupa(nomeRoupa);
+    setCor(cor);
+    setIdTipo(idTipo);
+    setDetalhes(detalhes);
+    setIdCliente(idCliente);
   }
 
   @Override
@@ -69,26 +69,26 @@ public class Roupa {
   }
 
   public int getId() {
-    return id;
+    return this.id;
   }
 
   public String getNomeRoupa() {
-    return nomeRoupa;
+    return this.nomeRoupa;
   }
 
   public String getCor() {
-    return cor;
+    return this.cor;
   }
 
   public int getIdTipo() {
-    return idTipo;
+    return this.idTipo;
   }
 
   public String getDetalhes() {
-    return detalhes;
+    return this.detalhes;
   }
 
   public int getIdCliente() {
-    return idCliente;
+    return this.idCliente;
   }
 }

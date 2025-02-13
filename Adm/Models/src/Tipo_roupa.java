@@ -4,9 +4,9 @@ public class Tipo_roupa {
   private String descricao;
 
   public Tipo_roupa(int id, String nome, String descricao) {
-    this.setId(id);
-    this.setNome(nome);
-    this.setDescricao(descricao);
+    setId(id);
+    setNome(nome);
+    setDescricao(descricao);
   }
 
   @Override
@@ -39,14 +39,14 @@ public class Tipo_roupa {
   }
 
   public int getId() {
-    return id;
+    return this.id;
   }
 
   public String getNome() {
-    return nome;
+    return this.nome;
   }
 
   public String getDescricao() {
-    return descricao;
+    return this.descricao;
   }
 }

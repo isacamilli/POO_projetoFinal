@@ -1,52 +1,52 @@
-public class Tipo_roupa {
+public class Combinacao {
   private int id;
-  private String nome;
-  private String descricao;
+  private String clima;
+  private int id_itens_roupas;
 
-  public Tipo_roupa(int id, String nome, String descricao) {
+  public Combinacao(int id, String nome, String descricao) {
     this.setId(id);
-    this.setNome(nome);
-    this.setDescricao(descricao);
+    this.setClima(clima);
+    this.setIdItens_roupas(id_itens_roupas);
   }
 
   @Override
   public String toString() {
-    return String.format("%d - %s - %s", id, nome, descricao);
+    return String.format("%d - %s - %d", id, clima, id_itens_roupas);
   }
 
   public void setId(int id) {
     if (id >= 0) {
       this.id = id;
     } else {
-      throw new IllegalArgumentException("ID tipo_roupa inválido");
+      throw new IllegalArgumentException("ID combinação inválido");
     }
   }
 
-  public void setNome(String nome) {
-    if (nome != null) {
-      this.nome = nome;
+  public void setClima(String clima) {
+    if (clima != null) {
+      this.clima = clima;
     } else {
-      throw new IllegalArgumentException("Nome tipo_roupa inválido");
+      throw new IllegalArgumentException("clima combinação inválido");
     }
   }
 
-  public void setDescricao(String descricao) {
-    if (descricao != null) {
-      this.descricao = descricao;
+  public void setIdItens_roupas(int id_itens_roupas) {
+    if (id_itens_roupas != []) {
+      this.id_itens_roupas = id_itens_roupas;
     } else {
-      throw new IllegalArgumentException("Descrição inválida");
+      throw new IllegalArgumentException("id item_roupa area combinação inválida");
     }
   }
 
   public int getId() {
-    return id;
+    return this.id;
   }
 
-  public String getNome() {
-    return nome;
+  public String getClima() {
+    return this.clima;
   }
 
-  public String getDescricao() {
-    return descricao;
+  public int getIdItens_roupas() {
+    return this.id_itens_roupas;
   }
 }

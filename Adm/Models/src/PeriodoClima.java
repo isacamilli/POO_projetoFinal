@@ -35,25 +35,25 @@ public class PeriodoClima {
   }
 
   public String getCidade() {
-    return cidade;
+    return this.cidade;
   }
 
   public String getClima() {
-    return clima;
+    return this.clima;
   }
 
   public LocalDateTime getData() {
-    return data;
+    return this.data;
   }
 
   public String getPeriodo() {
-    return periodo;
+    return this.periodo;
   }
 
   public void climaCidade() {
     String url = String.format(
         "http://api.openweathermap.org/data/2.5/weather?q=%s&appid=c5c2e778103223f1d989ac03ad6fcaee&units=metric&lang=pt_br",
-        cidade);
+        this.cidade);
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create(url))
         .GET()
@@ -64,18 +64,18 @@ public class PeriodoClima {
       if (response.statusCode() == 200) {
         String dados = response.body();
         // Parse JSON
-        pais = getJsonValue(dados, "sys.country");
-        clima = getJsonValue(dados, "weather[0].description");
-        temperatura = Double.parseDouble(getJsonValue(dados, "main.temp"));
-        sensacaoTermica = Double.parseDouble(getJsonValue(dados, "main.feels_like"));
-        data = LocalDateTime.now();
-        periodo = determinarPeriodo();
+        this.pais = getJsonValue(dados, "sys.country");
+        this.clima = getJsonValue(dados, "weather[0].description");
+        this.temperatura = Double.parseDouble(getJsonValue(dados, "main.temp"));
+        this.sensacaoTermica = Double.parseDouble(getJsonValue(dados, "main.feels_like"));
+        this.data = LocalDateTime.now();
+        this.periodo = determinarPeriodo();
       } else {
-        clima = "indisponível";
-        temperatura = Double.NaN;
-        sensacaoTermica = Double.NaN;
-        data = null;
-        periodo = "indisponível";
+        this.clima = "indisponível";
+        this.temperatura = Double.NaN;
+        this.sensacaoTermica = Double.NaN;
+        this.data = null;
+        this.periodo = "indisponível";
       }
     } catch (IOException | InterruptedException e) {
       System.err.println("Erro ao consultar API: " + e.getMessage());
