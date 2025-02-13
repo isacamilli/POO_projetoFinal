@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Roupa implements Inter {
   private int id;
   private String nome_roupa;
@@ -14,7 +17,28 @@ public class Roupa implements Inter {
     setDetalhes(detalhes);
     setId_cliente(id_cliente);
   }
+  
+  public Map<String, Object> toDict() {
+    Map<String, Object> dict = new HashMap<>();
+    dict.put("id", this.id);
+    dict.put("nome_roupa", this.nome_roupa);
+    dict.put("cor", this.cor);
+    dict.put("id_tipo", this.id_tipo);
+    dict.put("detalhes",this.detalhes);
+    dict.put("id_cliente",this.id_cliente);
+    return dict;
+}
 
+  @Override
+  public String toString() {
+      return "Item{" +
+              "id=" + this.id +
+              ", nome_roupa=" + this.nome_roupa +
+              ", cor=" + this.cor +
+              ", id_tipo=" + this.id_tipo +
+              ", detalhes=" + this.detalhes +
+              "id_cliente" + this.id_cliente;
+  }
 
   public void setId(int id) {
     if (id >= 0) {
@@ -86,26 +110,5 @@ public class Roupa implements Inter {
 
   public int getId_cliente() {
     return this.id_cliente;
-  }
-  public Map<String, Object> toDict() {
-    Map<String, Object> dict = new HashMap<>();
-    dict.put("id", this.id);
-    dict.put("nome", this.nome);
-    dict.put("email", this.email);
-    dict.put("fone", this.fone);
-    dict.put("senha",this.senha);
-    dict.put("adm",this.senha);
-    return dict;
-}
-  @Override
-  public String toString() {
-      return "Item{" +
-              "id=" + id +
-              ", nome=" + nome +
-              ", email=" + email +
-              ", fone=" + fone +
-              ", senha=" + senha +
-              "adm" + adm +
-              '}';
   }
 }

@@ -17,6 +17,27 @@ public class Cliente implements Inter {
     setSenha(senha);
     setAdm(adm);
   }
+  
+  public Map<String, Object> toDict() {
+    Map<String, Object> dict = new HashMap<>();
+    dict.put("id", this.id);
+    dict.put("nome", this.nome);
+    dict.put("email", this.email);
+    dict.put("fone", this.fone);
+    dict.put("senha",this.senha);
+    dict.put("adm",this.adm);
+    return dict;
+}
+  @Override
+  public String toString() {
+      return "Cliente:" +
+              "id=" + this.id +
+              ", nome=" + this.nome +
+              ", email=" + this.email +
+              ", fone=" + this.fone +
+              ", senha=" + this.senha +
+              "adm" + this.adm ;
+  }
 
   // @Override
   // public String toString() {
@@ -86,25 +107,4 @@ public class Cliente implements Inter {
     return adm;
   }
 
-  public Map<String, Object> toDict() {
-    Map<String, Object> dict = new HashMap<>();
-    dict.put("id", this.id);
-    dict.put("nome", this.nome);
-    dict.put("email", this.email);
-    dict.put("fone", this.fone);
-    dict.put("senha",this.senha);
-    dict.put("adm",this.senha);
-    return dict;
-}
-  @Override
-  public String toString() {
-      return "Item{" +
-              "id=" + id +
-              ", nome=" + nome +
-              ", email=" + email +
-              ", fone=" + fone +
-              ", senha=" + senha +
-              "adm" + adm +
-              '}';
-  }
 }

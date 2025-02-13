@@ -7,11 +7,11 @@ class Combinacao:
     self.set_id_itens_roupas(id_itens_roupas)
     self.set_clima(clima)
 
-  def __str__(self):
+  def __str__(self) -> str:
     return f"Combinação:
-            id= {self.__id}
-            , clima= {self.__clima}
-            , id_itens= {self.__id_itens_roupas}"
+              id={self.__id} 
+              , clima= {self.__clima}
+              , id_itens= {self.__id_itens_roupas}"
   
   def to_dict(self):
     return {
@@ -111,7 +111,7 @@ class Combinacoes:
           with open("Data/combinacao.json", mode='r') as arquivo:
               combinacao_json = json.load(arquivo)
               for obj in combinacao_json:
-                  combinacao = Combinacao(obj["_combinacao__id"], obj["_combinacao__id_clima"], obj["_combinacao__id_itens_roupas"])
+                  combinacao = Combinacao(obj["id"], obj["clima"], obj["id_itens"])
                   cls.objetos.append(combinacao)
 
       except FileNotFoundError:

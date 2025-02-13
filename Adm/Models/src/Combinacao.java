@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Combinacao implements Inter{
   private int id;
   private String clima;
@@ -11,8 +14,19 @@ public class Combinacao implements Inter{
 
   @Override
   public String toString() {
-    return String.format("%d - %s - %d", id, clima, id_itens_roupas);
+    return String.format("Combinação:" +
+              "id=" + this.id +
+              ", clima=" + this.clima +
+              ", id_itens=" + this.id_itens_roupas);
   }
+
+  public Map<String, Object> toDict() {
+    Map<String, Object> dict = new HashMap<>();
+    dict.put("id", this.id);
+    dict.put("clima", this.clima);
+    dict.put("id_itens", this.id_itens_roupas);
+    return dict;
+}
 
   public void setId(int id) {
     if (id >= 0) {

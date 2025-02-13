@@ -5,6 +5,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PeriodoClima implements Inter{
   private int id;
@@ -28,6 +30,19 @@ public class PeriodoClima implements Inter{
         cidade, pais, data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")), clima, periodo, temperatura,
         sensacaoTermica);
   }
+
+  public Map<String, Object> toDict() {
+    Map<String, Object> dict = new HashMap<>();
+    dict.put("id", this.id);
+    dict.put("cidade", this.cidade);
+    dict.put("pais", this.pais);
+    dict.put("data", this.data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
+    dict.put("clima",this.clima);
+    dict.put("periodo",this.periodo);
+    dict.put("temperatura",this.temperatura);
+    dict.put("sensacao_termica",this.sensacaoTermica);
+    return dict;
+}
 
   public void setId(int id){
     if (id > 0 ){
@@ -98,7 +113,7 @@ public class PeriodoClima implements Inter{
   }
 
   private String getJsonValue(String json, String key) {
-    int startIndex = json.indexOf(key) + key.length() + 2;
+    int startIndex = json.indexOf(key) + key.length() + 4;
     int endIndex = json.indexOf(',', startIndex);
     return json.substring(startIndex, endIndex).trim().replaceAll("\"", "");
   }

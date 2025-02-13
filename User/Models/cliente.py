@@ -11,7 +11,13 @@ class Cliente:
     self.set_adm(adm)
 
   def __str__(self):
-    return f"{self.__id} - {self.__nome} - {self.__email} - {self.__fone}"
+    return f"Cliente:
+            id= {self.__id}
+            , nome= {self.__nome}
+            , email= {self.__email} 
+            , fone= {self.__fone}
+            , senha= {self.__senha}
+            , adm= {self.__adm}"
 
 
   def to_dict(self):
