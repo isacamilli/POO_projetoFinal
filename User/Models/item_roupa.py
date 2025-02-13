@@ -60,9 +60,15 @@ class Itens_roupas:
 
         cls.abrir()
         
+    @classmethod
+    def listar_roupas(cls,id):
+        roupas_lista = []
+
+        cls.abrir()
+        
         for x in cls.objetos:
             if x.id == id:
-                for i in len(x.lista_id_roupas):
+                for i in range(len(x.lista_id_roupas)):
                     roupas_lista.append(Roupas.listar_id(x.lista_id_roupas[i]))           
                 return roupas_lista
 
@@ -85,17 +91,17 @@ class Itens_roupas:
 
     @classmethod
     def salvar(cls):
-        if not os.path.exists('data'):
-            os.makedirs('data')
+        if not os.path.exists('Data'):
+            os.makedirs('Data')
 
-        with open('data/item_roupa.json', mode='w') as arquivo:
+        with open('Data/item_roupa.json', mode='w') as arquivo:
             json.dump(cls.objetos,arquivo,default=vars)
 
     @classmethod
     def abrir(cls):
         cls.objetos = []
         try:
-            with open("data/item_roupa.json", mode='r') as arquivo:
+            with open("Data/item_roupa.json", mode='r') as arquivo:
                 item_roupa_json = json.load(arquivo)
                 for obj in item_roupa_json:
                     item_roupa = Item_roupa(obj["_Item_roupa__id"], obj["_Item_roupa__lista_id_roupas"])

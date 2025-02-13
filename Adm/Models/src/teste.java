@@ -9,5 +9,8 @@ public class teste {
     Cliente cliente = new Cliente(id, nome, email, tel, senha, adm);
     Clientes clientes = new Clientes();
     clientes.inserir(cliente);
+    Roupa roupa1 = new Roupa(1, "blusa", "preto", 2, "blusa fria", 1);
+    Roupas roupas = new Roupas();
+    roupas.inserir(roupa1);
   }
 }

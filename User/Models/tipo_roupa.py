@@ -78,16 +78,16 @@ class Tipos_roupas:
 
     @classmethod
     def salvar(cls):
-        if not os.path.exists("data"):
-            os.makedirs('data')
-        with open("data/tipo_roupa.json", mode='w') as arquivo:
+        if not os.path.exists("Data"):
+            os.makedirs('Data')
+        with open("Data/tipo_roupa.json", mode='w') as arquivo:
             json.dump(cls.objetos, arquivo, default = vars)
 
     @classmethod
     def abrir(cls):
         cls.objetos = []
         try:
-            with open("data/tipo_roupa.json") as arquivo:
+            with open("Data/tipo_roupa.json") as arquivo:
                 tipo_json = json.load(arquivo)
                 for obj in tipo_json:
                     t_r = Tipo_roupa(obj["_Tipo_roupa__id"],obj["_Tipo_roupa__nome"],obj["_Tipo_roupa__descricao"])

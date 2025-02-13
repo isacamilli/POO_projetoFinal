@@ -69,7 +69,7 @@ class Locais:
       cls.salvar()  
 
   @staticmethod
-  def salvar(usuario_id, cidade_nome, filename="data/local.json"):
+  def salvar(usuario_id, cidade_nome, filename="Data/local.json"):
     directory = os.path.dirname(filename)
     if not os.path.exists(directory):
       os.makedirs(directory)
@@ -95,7 +95,7 @@ class Locais:
   def abrir(cls):
     cls.objetos = []
     try:
-      with open("data/local.json", mode="r") as arquivo:
+      with open("Data/local.json", mode="r") as arquivo:
         locais_json = json.load(arquivo)
         for obj in locais_json:
           c = Local(obj["_local__id"], obj["_local__cidade"])

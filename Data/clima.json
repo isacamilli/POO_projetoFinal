@@ -1,0 +1,12 @@
+{
+    "natal": {
+        "id": 1,
+        "cidade": "natal",
+        "pais": "BR",
+        "data": "13/02/2025 13:15",
+        "clima": "nublado",
+        "periodo": "Inverno",
+        "temperatura": 28.36,
+        "sensacao_termica": 31.23
+    }
+}

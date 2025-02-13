@@ -8,7 +8,17 @@ class Combinacao:
     self.set_clima(clima)
 
   def __str__(self):
-    return f"combinacao: {self.__id} - clima: {self.__clima}- {self.__id_itens_roupas}"
+    return f"Combinação:
+            id= {self.__id}
+            , clima= {self.__clima}
+            , id_itens= {self.__id_itens_roupas}"
+  
+  def to_dict(self):
+    return {
+        'id': self.__id,
+        'clima': self.__clima,
+        'id_itens': self.__id_itens_roupas,
+        }
 
   def set_id(self, id):
     if isinstance(id, int):
@@ -86,23 +96,23 @@ class Combinacoes:
       cls.objetos.remove(x)
       cls.salvar()  
 
-    @classmethod
-    def salvar(cls):
-        if not os.path.exists('data'):
-            os.makedirs('data')
+  @classmethod
+  def salvar(cls):
+      if not os.path.exists('Data'):
+          os.makedirs('Data')
 
-        with open('data/combinacao.json', mode='w') as arquivo:
-            json.dump(cls.objetos,arquivo,default=vars)
+      with open('Data/combinacao.json', mode='w') as arquivo:
+          json.dump(cls.objetos,arquivo,default=vars)
 
-    @classmethod
-    def abrir(cls):
-        cls.objetos = []
-        try:
-            with open("data/combinacao.json", mode='r') as arquivo:
-                combinacao_json = json.load(arquivo)
-                for obj in combinacao_json:
-                    combinacao = Combinacao(obj["_combinacao__id"], obj["_combinacao__id_clima"], obj["_combinacao__id_itens_roupas"])
-                    cls.objetos.append(combinacao)
+  @classmethod
+  def abrir(cls):
+      cls.objetos = []
+      try:
+          with open("Data/combinacao.json", mode='r') as arquivo:
+              combinacao_json = json.load(arquivo)
+              for obj in combinacao_json:
+                  combinacao = Combinacao(obj["_combinacao__id"], obj["_combinacao__id_clima"], obj["_combinacao__id_itens_roupas"])
+                  cls.objetos.append(combinacao)
 
-        except FileNotFoundError:
-            pass
+      except FileNotFoundError:
+          pass

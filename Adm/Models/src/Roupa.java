@@ -1,24 +1,20 @@
 public class Roupa implements Inter {
   private int id;
-  private String nomeRoupa;
+  private String nome_roupa;
   private String cor;
-  private int idTipo;
+  private int id_tipo;
   private String detalhes;
-  private int idCliente;
+  private int id_cliente;
 
-  public Roupa(int id, String nomeRoupa, String cor, int idTipo, String detalhes, int idCliente) {
+  public Roupa(int id, String nome_roupa, String cor, int id_tipo, String detalhes, int id_cliente) {
     setId(id);
-    setNomeRoupa(nomeRoupa);
+    setNome_roupa(nome_roupa);
     setCor(cor);
-    setIdTipo(idTipo);
+    setId_tipo(id_tipo);
     setDetalhes(detalhes);
-    setIdCliente(idCliente);
+    setId_cliente(id_cliente);
   }
 
-  @Override
-  public String toString() {
-    return String.format("%d - %s - %s - %d - %s - %d", id, nomeRoupa, cor, idTipo, detalhes, idCliente);
-  }
 
   public void setId(int id) {
     if (id >= 0) {
@@ -28,9 +24,9 @@ public class Roupa implements Inter {
     }
   }
 
-  public void setNomeRoupa(String nomeRoupa) {
-    if (nomeRoupa != null) {
-      this.nomeRoupa = nomeRoupa;
+  public void setNome_roupa(String nome_roupa) {
+    if (nome_roupa != null) {
+      this.nome_roupa = nome_roupa;
     } else {
       throw new IllegalArgumentException("Nome inválido");
     }
@@ -44,9 +40,9 @@ public class Roupa implements Inter {
     }
   }
 
-  public void setIdTipo(int idTipo) {
-    if (idTipo >= 0) {
-      this.idTipo = idTipo;
+  public void setId_tipo(int id_tipo) {
+    if (id_tipo >= 0) {
+      this.id_tipo = id_tipo;
     } else {
       throw new IllegalArgumentException("Tipo inválido");
     }
@@ -60,9 +56,9 @@ public class Roupa implements Inter {
     }
   }
 
-  public void setIdCliente(int idCliente) {
-    if (idCliente >= 0) {
-      this.idCliente = idCliente;
+  public void setId_cliente(int id_cliente) {
+    if (id_cliente >= 0) {
+      this.id_cliente = id_cliente;
     } else {
       throw new IllegalArgumentException("id cliente na área roupa inválido");
     }
@@ -72,23 +68,44 @@ public class Roupa implements Inter {
     return this.id;
   }
 
-  public String getNomeRoupa() {
-    return this.nomeRoupa;
+  public String getNome_roupa() {
+    return this.nome_roupa;
   }
 
   public String getCor() {
     return this.cor;
   }
 
-  public int getIdTipo() {
-    return this.idTipo;
+  public int getId_tipo() {
+    return this.id_tipo;
   }
 
   public String getDetalhes() {
     return this.detalhes;
   }
 
-  public int getIdCliente() {
-    return this.idCliente;
+  public int getId_cliente() {
+    return this.id_cliente;
+  }
+  public Map<String, Object> toDict() {
+    Map<String, Object> dict = new HashMap<>();
+    dict.put("id", this.id);
+    dict.put("nome", this.nome);
+    dict.put("email", this.email);
+    dict.put("fone", this.fone);
+    dict.put("senha",this.senha);
+    dict.put("adm",this.senha);
+    return dict;
+}
+  @Override
+  public String toString() {
+      return "Item{" +
+              "id=" + id +
+              ", nome=" + nome +
+              ", email=" + email +
+              ", fone=" + fone +
+              ", senha=" + senha +
+              "adm" + adm +
+              '}';
   }
 }
