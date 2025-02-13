@@ -1,9 +1,7 @@
-package src;
-
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cliente {
+public class Cliente implements Inter {
   private int id;
   private String nome;
   private String email;

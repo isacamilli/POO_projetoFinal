@@ -8,7 +8,17 @@ class Combinacao:
     self.set_clima(clima)
 
   def __str__(self):
-    return f"combinacao: {self.__id} - clima: {self.__clima}- {self.__id_itens_roupas}"
+    return f"Combinação:
+            id= {self.__id}
+            , clima= {self.__clima}
+            , id_itens= {self.__id_itens_roupas}"
+  
+  def to_dict(self):
+    return {
+        'id': self.__id,
+        'clima': self.__clima,
+        'id_itens': self.__id_itens_roupas,
+        }
 
   def set_id(self, id):
     if isinstance(id, int):
@@ -86,39 +96,23 @@ class Combinacoes:
       cls.objetos.remove(x)
       cls.salvar()  
 
-    @classmethod
-    def salvar(cls):
-        if not os.path.exists('data'):
-            os.makedirs('data')
+  @classmethod
+  def salvar(cls):
+      if not os.path.exists('Data'):
+          os.makedirs('Data')
 
-        with open('data/combinacao.json', mode='w') as arquivo:
-            json.dump(cls.objetos,arquivo,default=vars)
+      with open('Data/combinacao.json', mode='w') as arquivo:
+          json.dump(cls.objetos,arquivo,default=vars)
 
-    @classmethod
-    def abrir(cls):
-        cls.objetos = []
-        try:
-            with open("data/combinacao.json", mode='r') as arquivo:
-                combinacao_json = json.load(arquivo)
-                for obj in combinacao_json:
-                    combinacao = Combinacao(obj["_combinacao__id"], obj["_combinacao__id_clima"], obj["_combinacao__id_itens_roupas"])
-                    cls.objetos.append(combinacao)
+  @classmethod
+  def abrir(cls):
+      cls.objetos = []
+      try:
+          with open("Data/combinacao.json", mode='r') as arquivo:
+              combinacao_json = json.load(arquivo)
+              for obj in combinacao_json:
+                  combinacao = Combinacao(obj["_combinacao__id"], obj["_combinacao__id_clima"], obj["_combinacao__id_itens_roupas"])
+                  cls.objetos.append(combinacao)
 
-        except FileNotFoundError:
-            pass
-
-# Exemplo
-# combinacao1 = Combinacao(1, "primavera", 101)
-# combinacao2 = Combinacao(2, "verão", 102)
-# combinacao3 = Combinacao(3, "outono", 103)
-# combinacao4 = Combinacao(4, "inverno", 104)
-
-# combinacao1.verificar_ids()
-# combinacao2.verificar_ids()
-# combinacao3.verificar_ids()
-# combinacao4.verificar_ids()
-
-# Combinacoes.salvar_combinacao(combinacao1)
-# Combinacoes.salvar_combinacao(combinacao2)
-# Combinacoes.salvar_combinacao(combinacao3)
-# Combinacoes.salvar_combinacao(combinacao4)
+      except FileNotFoundError:
+          pass

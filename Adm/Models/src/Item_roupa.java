@@ -1,14 +1,15 @@
-package src;
-
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Item_roupa {
+
+public class Item_roupa implements Inter {
     private int id;
-    private List<Integer> listaIdRoupas;
+    private List<Integer> lista_id_roupas;
 
-    public ItemRoupa(int id, List<Integer> listaIdRoupas) {
+    public Item_roupa(int id, List<Integer> lista_id_roupas) {
         setId(id);
-        setLista(listaIdRoupas);
+        setLista(lista_id_roupas);
     }
 
     public void setId(int id) {
@@ -22,7 +23,9 @@ public class Item_roupa {
         if (listaIdRoupas == null || listaIdRoupas.isEmpty()) {
             throw new IllegalArgumentException("Lista itens roupas não pode estar vazia");
         }
-        this.listaIdRoupas = listaIdRoupas;
+        else{
+            this.lista_id_roupas = listaIdRoupas;
+        }
     }
 
     public int getId() {
@@ -30,17 +33,17 @@ public class Item_roupa {
     }
 
     public List<Integer> getListaIdRoupas() {
-        return this.listaIdRoupas;
+        return this.lista_id_roupas;
     }
 
     public String toString() {
-        return String.format("%d - %s", id, listaIdRoupas);
+        return String.format("%d - %s", this.id, this.lista_id_roupas);
     }
 
     public Map<String, Object> toDict() {
         Map<String, Object> dict = new HashMap<>();
         dict.put("id", this.id);
-        dict.put("listaIdRoupas", this.listaIdRoupas);
+        dict.put("lista_id_oupas", this.lista_id_roupas);
         return dict;
     }
 }

@@ -11,7 +11,23 @@ class Roupa:
         self.set_idCliente(id_cliente)
 
     def __str__(self) -> str:
-        return f"{self.__id} - {self.__nome_roupa} - {self.__cor} - {self.__id_tipo} - {self.__detalhes} - {self.__id_cliente}"
+        return f"Roupa:
+                  id={self.__id} 
+                 , nome_roupa= {self.__nome_roupa} 
+                 , cor= {self.__cor} 
+                 , id_tipo= {self.__id_tipo} 
+                 , detalhes= {self.__detalhes} 
+                 , id_cliente= {self.__id_cliente}"
+
+    def to_dict(self):
+        return {
+            'id': self.__id,
+            'nome_roupa': self.__nome_roupa,
+            'cor': self.__cor,
+            'id_tipo': self.__id_tipo,
+            'detalhes': self.__detalhes,
+            'id_cliente': self.__id_cliente
+            }
 
 
     def set_id(self,id):
@@ -106,17 +122,17 @@ class Roupas:
 
     @classmethod
     def salvar(cls):
-        if not os.path.exists('data'):
-            os.makedirs('data')
+        if not os.path.exists('Data'):
+            os.makedirs('Data')
 
-        with open('data/roupa.json', mode='w') as arquivo:
+        with open('Data/roupa.json', mode='w') as arquivo:
             json.dump(cls.objetos,arquivo,default = vars)
 
     @classmethod
     def abrir(cls):
         cls.objetos = []
         try:
-            with open("data/roupa.json", mode='r') as arquivo:
+            with open("Data/roupa.json", mode='r') as arquivo:
                 roupas_json = json.load(arquivo)
                 for obj in roupas_json:
                     roupa = Roupa(obj["_Roupa__id"], obj["_Roupa__nome_roupa"],obj["_Roupa__cor"],obj["_Roupa__id_tipo"], obj["_Roupa__detalhes"],obj["_Roupa__id_cliente"])
