@@ -115,7 +115,7 @@ class climas:
         clima_dict = {}
 
     clima_data = {
-       "id": Periodo_Clima.id,
+        "id": Periodo_Clima.id,
       "cidade": Periodo_Clima.cidade,
       "pais": Periodo_Clima.pais,
       "data": Periodo_Clima.data.strftime('%d/%m/%Y %H:%M'),
@@ -129,3 +129,4 @@ class climas:
 
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(clima_dict, f, ensure_ascii=False, indent=4)
+    

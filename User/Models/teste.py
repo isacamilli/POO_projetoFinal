@@ -1,39 +1,94 @@
-from cliente import Cliente,Clientes
-from roupa import Roupa,Roupas
-from tipo_roupa import Tipo_roupa,Tipos_roupas
-from item_roupa import Item_roupa,Itens_roupas
+from cliente import Cliente, Clientes
+from roupa import Roupa, Roupas
+from tipo_roupa import Tipo_roupa, Tipos_roupas
+from item_roupa import Item_roupa, Itens_roupas
 from clima import Periodo_Clima, climas
 from combinacao import Combinacao, Combinacoes
+from local import Local, Locais
 
-#teste cliente
-cliente1 = Cliente(2,"gust",'email',1234,'senha',False)
+# Teste Cliente
+cliente1 = Cliente(2, "Gust", "email", 1234, "senha", False)
 Clientes.inserir(cliente1)
 
-x = Clientes.listar()
-for i in x:
-  print(i)
+print("\nLista de Clientes:")
+for cliente in Clientes.listar():
+  print(cliente)
 
-roupa1 = Roupa(1,"mizuno",'preta',2,'strisce bianche',1)
-roupa2 = Roupa(5,"maglietta",'azzura',1,'tank top',1)
-roupa3 = Roupa(90,"scarpe",'rosa',3,'nere',2)
+# Teste Roupa
+roupas = [
+  Roupa(1, "Mizuno", "Preta", 2, "Strisce bianche", 1),
+  Roupa(5, "Maglietta", "Azzura", 1, "Tank top", 1),
+  Roupa(90, "Scarpe", "Rosa", 3, "Nere", 2)
+]
 
-Roupas.inserir(roupa1)
-Roupas.inserir(roupa2)
-Roupas.inserir(roupa3)
+for roupa in roupas:
+  Roupas.inserir(roupa)
 
-tipo_roupa1 = Tipo_roupa(3,'pantaloni','larghi')
-tipo_roupa2 = Tipo_roupa(2,"maglietta","cotone")
+print("\nLista de Roupas:")
+for roupa in Roupas.listar():
+  print(roupa)
 
-Tipos_roupas.inserir(tipo_roupa1)
-Tipos_roupas.inserir(tipo_roupa2)
+# Teste Tipo de Roupa
+tipos_roupa = [
+  Tipo_roupa(3, "Pantaloni", "Larghi"),
+  Tipo_roupa(2, "Maglietta", "Cotone")
+]
 
-itens_roupas1 = Item_roupa(4,[1,2])
+for tipo in tipos_roupa:
+  Tipos_roupas.inserir(tipo)
+
+print("\nLista de Tipos de Roupa:")
+for tipo in Tipos_roupas.listar():
+  print(tipo)
+
+# Teste Item Roupa
+itens_roupas1 = Item_roupa(4, [1, 2])
 Itens_roupas.inserir(itens_roupas1)
+
+print("\nLista de Itens de Roupa para o ID 1:")
 Itens_roupas.listar_roupas(1)
 
-clima1 = Periodo_Clima(1,"natal")
+# Teste Clima
+clima1 = Periodo_Clima(1, "Frio")
 clima1.clima_cidade()
 climas.salvar_clima_em_json(clima1)
 
-combinacao1 = Combinacao(1,"natal",1)
+# Teste Combinação
+combinacao1 = Combinacao(1, "Natal", 1)
 Combinacoes.inserir(combinacao1)
+
+print("\nLista de Combinações:")
+for combinacao in Combinacoes.listar():
+  print(combinacao)
+
+# Teste Local
+locais = [
+  Local(1, "São Paulo"),
+  Local(2, "Rio de Janeiro")
+]
+
+for local in locais:
+  Locais.inserir(local)
+
+print("\nLista de Locais:")
+for local in Locais.listar():
+  print(local)
+
+# Testando busca por ID
+print("\nBuscando Local com ID 1:")
+print(Locais.listar_id(1))
+
+# Atualizando um local
+local_atualizado = Local(1, "Curitiba")
+Locais.atualizar(local_atualizado)
+
+print("\nLista de Locais após Atualização:")
+for local in Locais.listar():
+  print(local)
+
+# Removendo um local
+Locais.excluir(locais[1])
+
+print("\nLista de Locais após Exclusão:")
+for local in Locais.listar():
+  print(local)
