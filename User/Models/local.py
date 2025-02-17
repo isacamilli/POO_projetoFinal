@@ -16,16 +16,12 @@ class Local:
     }
 
   def set_id(self, id):
-    if isinstance(id, int):
-      self.__id = id
-    else:
-      raise ValueError("ID do local inválido")
+    if isinstance(id, int): self.__id = id
+    else: raise ValueError("ID do local inválido")
 
   def set_cidade(self, cidade):
-    if isinstance(cidade, str):
-      self.__cidade = cidade
-    else:
-      raise ValueError("Cidade inválida")
+    if isinstance(cidade, str): self.__cidade = cidade
+    else: raise ValueError("Cidade inválida")
 
   @property
   def id(self):

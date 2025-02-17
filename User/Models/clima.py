@@ -97,11 +97,11 @@ class Periodo_Clima:
     self.__periodo = value
 
 
-class climas:
+class Climas:
   objetos = []
 
   @staticmethod
-  def salvar_clima_em_json(Periodo_Clima, filename="Data/clima.json"):
+  def salvar_clima(Periodo_Clima, filename="Data/clima.json"):
     directory = os.path.dirname(filename)
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -115,7 +115,7 @@ class climas:
         clima_dict = {}
 
     clima_data = {
-        "id": Periodo_Clima.id,
+      "id": Periodo_Clima.id,
       "cidade": Periodo_Clima.cidade,
       "pais": Periodo_Clima.pais,
       "data": Periodo_Clima.data.strftime('%d/%m/%Y %H:%M'),

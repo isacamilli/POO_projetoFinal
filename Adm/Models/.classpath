@@ -1,0 +1,6 @@
+<classpath>
+    <classpathentry kind="src" path="src"/> <!-- Pasta src como fonte de código -->
+    <classpathentry kind="lib" path="lib/gson-2.11.0.jar"/> <!-- Referência ao Gson -->
+    <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/> <!-- JDK -->
+    <classpathentry kind="output" path="bin"/> <!-- Pasta de saída para os .class -->
+</classpath>

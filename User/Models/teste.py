@@ -2,7 +2,7 @@ from cliente import Cliente, Clientes
 from roupa import Roupa, Roupas
 from tipo_roupa import Tipo_roupa, Tipos_roupas
 from item_roupa import Item_roupa, Itens_roupas
-from clima import Periodo_Clima, climas
+from clima import Periodo_Clima, Climas
 from combinacao import Combinacao, Combinacoes
 from local import Local, Locais
 
@@ -51,7 +51,7 @@ Itens_roupas.listar_roupas(1)
 # Teste Clima
 clima1 = Periodo_Clima(1, "Frio")
 clima1.clima_cidade()
-climas.salvar_clima_em_json(clima1)
+Climas.salvar_clima(clima1)
 
 # Teste Combinação
 combinacao1 = Combinacao(1, "Natal", 1)
@@ -77,18 +77,3 @@ for local in Locais.listar():
 # Testando busca por ID
 print("\nBuscando Local com ID 1:")
 print(Locais.listar_id(1))
-
-# Atualizando um local
-local_atualizado = Local(1, "Curitiba")
-Locais.atualizar(local_atualizado)
-
-print("\nLista de Locais após Atualização:")
-for local in Locais.listar():
-  print(local)
-
-# Removendo um local
-Locais.excluir(locais[1])
-
-print("\nLista de Locais após Exclusão:")
-for local in Locais.listar():
-  print(local)

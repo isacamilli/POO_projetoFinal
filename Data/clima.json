@@ -3,20 +3,10 @@
         "id": 1,
         "cidade": "natal",
         "pais": "BR",
-        "data": "13/02/2025 19:20",
-        "clima": "algumas nuvens",
-        "periodo": "Inverno",
-        "temperatura": 28.12,
-        "sensacao_termica": 30.76
-    },
-    "Frio": {
-        "id": 1,
-        "cidade": "Frio",
-        "pais": "BR",
-        "data": "14/02/2025 18:55",
+        "data": "16/02/2025 22:10",
         "clima": "nublado",
         "periodo": "Inverno",
-        "temperatura": 29.72,
-        "sensacao_termica": 29.59
+        "temperatura": 26.12,
+        "sensacao_termica": 26.12
     }
 }
