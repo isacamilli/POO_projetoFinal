@@ -1,5 +1,8 @@
+package Models;
+
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class Cliente implements Inter {
   private int id;

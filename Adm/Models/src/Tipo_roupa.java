@@ -1,3 +1,5 @@
+package models;
+
 public class Tipo_roupa implements Inter{
   private int id;
   private String nome;
