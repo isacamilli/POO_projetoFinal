@@ -1,4 +1,4 @@
-package models;
+package Adm.Models.src;
 
 import java.util.List;
 import java.util.HashMap;

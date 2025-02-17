@@ -1,4 +1,4 @@
-package models;
+package Adm.Models.src;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

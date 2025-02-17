@@ -1,4 +1,4 @@
-package models;
+package Adm.Models.src;
 
 public class teste {
   public static void main(String[] args){

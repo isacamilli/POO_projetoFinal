@@ -1,4 +1,4 @@
-package models;
+package Adm.Models.src;
 
 public class Tipo_roupa implements Inter{
   private int id;

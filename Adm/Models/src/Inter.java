@@ -1,4 +1,4 @@
-package Models;
+package Adm.Models.src;
 
 public interface Inter {
   int getId();

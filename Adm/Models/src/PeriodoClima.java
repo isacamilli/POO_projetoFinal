@@ -1,4 +1,4 @@
-package models;
+package Adm.Models.src;
 
 import java.io.IOException;
 import java.net.URI;
