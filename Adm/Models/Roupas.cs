@@ -5,12 +5,9 @@ using System.IO;
 
 namespace Adm.Models
 {
-    // Classe Clientes herda de CRUD<Cliente>
-    public class Clientes : CRUD<Cliente>
+    public class Roupas : CRUD<Roupa>
     {
 
-        // protected List<Cliente> objetos = new List<Cliente>();
-        // Método para salvar os clientes no arquivo JSON
         public override void Salvar()
         {
             if (!Directory.Exists("../../Data"))
@@ -20,15 +17,14 @@ namespace Adm.Models
 
             try
             {
-                using (StreamWriter arquivo = new StreamWriter("../../Data/cliente.json"))
+                using (StreamWriter arquivo = new StreamWriter("../../Data/roupa.json"))
                 {
                     var dados = new List<Dictionary<string, object>>();
-                    foreach (var cliente in objetos)
+                    foreach (var roupa in objetos)
                     {
-                        dados.Add(cliente.ToDict());  // Convertendo o cliente para dicionário
+                        dados.Add(roupa.ToDict());  
                     }
 
-                    // Serializar a lista de dicionários e gravar no arquivo JSON
                     string json = JsonConvert.SerializeObject(dados);
                     arquivo.Write(json);
                 }
@@ -39,32 +35,31 @@ namespace Adm.Models
             }
         }
 
-        // Sobrescrevendo o método abrir
         public override void Abrir()
         {
             try
             {
-                using (StreamReader reader = new StreamReader("../../Data/cliente.json"))
+                using (StreamReader reader = new StreamReader("../../Data/roupa.json"))
                 {
                     string json = reader.ReadToEnd();  // Lê o conteúdo do arquivo JSON
-                    var listaClientes = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
+                    var listaRoupas = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
 
-                    if (listaClientes != null)
+                    if (listaRoupas != null)
                     {
                         objetos.Clear();
-                        foreach (var obj in listaClientes)
+                        foreach (var obj in listaRoupas)
                         {
-                            // Cria o objeto Cliente a partir do dicionário
-                            var cliente = new Cliente(
+                            // Cria o objeto Roupa a partir do dicionário
+                            var roupa = new Roupa(
                                 Convert.ToInt32(obj["id"]),
-                                obj["nome"].ToString(),
-                                obj["email"].ToString(),
-                                obj["fone"].ToString(),
-                                obj["senha"].ToString(),
-                                Convert.ToBoolean(obj["adm"])
+                                obj["nome_roupa"].ToString(),
+                                obj["cor"].ToString(),
+                                Convert.ToInt32(obj["id_tipo"]),
+                                obj["detalhes"].ToString(),
+                                Convert.ToInt32(obj["id_cliente"])
                             );
 
-                            objetos.Add(cliente);  // Adiciona o cliente à lista
+                            objetos.Add(roupa);  // Adiciona o Roupa à lista
                         }
                     }
                 }

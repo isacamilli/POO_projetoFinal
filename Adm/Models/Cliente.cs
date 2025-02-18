@@ -16,16 +16,16 @@ namespace Adm.Models
         // Construtor que apenas inicializa os campos, sem validação
         public Cliente(int id, string nome, string email, string fone, string senha, bool adm)
         {
-            SetId(id);   // Usando os setters para garantir a validação
-            SetNome(nome);
-            SetEmail(email);
-            SetFone(fone);
-            SetSenha(senha);
-            SetAdm(adm);
+         setId(id);   // Usando os setters para garantir a validação
+         setNome(nome);
+         setEmail(email);
+         setFone(fone);
+         setSenha(senha);
+         setAdm(adm);
         }
 
         // Métodos setters com validação
-        public void SetId(int id)
+        public void setId(int id)
         {
             if (id < 0)
             {
@@ -34,7 +34,7 @@ namespace Adm.Models
             this.id = id;
         }
 
-        public void SetNome(string nome)
+        public void setNome(string nome)
         {
             if (string.IsNullOrWhiteSpace(nome))
             {
@@ -43,7 +43,7 @@ namespace Adm.Models
             this.nome = nome;
         }
 
-        public void SetEmail(string email)
+        public void setEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
             {
@@ -52,7 +52,7 @@ namespace Adm.Models
             this.email = email;
         }
 
-        public void SetFone(string fone)
+        public void setFone(string fone)
         {
             if (string.IsNullOrWhiteSpace(fone))
             {
@@ -61,7 +61,7 @@ namespace Adm.Models
             this.fone = fone;
         }
 
-        public void SetSenha(string senha)
+        public void setSenha(string senha)
         {
             if (string.IsNullOrWhiteSpace(senha))
             {
@@ -70,30 +70,30 @@ namespace Adm.Models
             this.senha = senha;
         }
 
-        public void SetAdm(bool adm)
+        public void setAdm(bool adm)
         {
             this.adm = adm;
         }
 
         // Métodos getters
-        public int GetId() => id;
-        public string GetNome() => nome;
-        public string GetEmail() => email;
-        public string GetFone() => fone;
-        public string GetSenha() => senha;
-        public bool IsAdm() => adm;
+        public int getId() => this.id;
+        public string getNome() => this.nome;
+        public string getEmail() => this.email;
+        public string getFone() => this.fone;
+        public string getSenha() => this.senha;
+        public bool isAdm() => this.adm;
 
         // Método para converter cliente em dicionário
         public Dictionary<string, object> ToDict()
         {
             return new Dictionary<string, object>
             {
-                { "id", id },
-                { "nome", nome },
-                { "email", email },
-                { "fone", fone },
-                { "senha", senha },
-                { "adm", adm }
+                { "id", this.id },
+                { "nome", this.nome },
+                { "email", this.email },
+                { "fone", this.fone },
+                { "senha", this.senha },
+                { "adm", this.adm }
             };
         }
 

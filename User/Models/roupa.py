@@ -2,13 +2,13 @@ import json
 import os
 
 class Roupa:
-    def __init__(self,id:int, nome_roupa, cor,tipo:int,detalhes,id_Roupa:int):
+    def __init__(self,id:int, nome_roupa, cor,tipo:int,detalhes,id_cliente:int):
         self.set_id(id)
         self.set_nomeRoupa(nome_roupa)
         self.set_cor(cor)
         self.set_idTipo(tipo)
         self.set_detalhes(detalhes)
-        self.set_idRoupa(id_Roupa)
+        self.set_idCliente(id_cliente)
 
     def __str__(self) -> str:
         return f"""Roupa:
@@ -17,7 +17,7 @@ class Roupa:
                  , cor= {self.__cor} 
                  , id_tipo= {self.__id_tipo} 
                  , detalhes= {self.__detalhes} 
-                 , id_Roupa= {self.__id_Roupa}"""
+                 , id_cliente= {self.__id_cliente}"""
 
     def to_dict(self):
         return {
@@ -26,7 +26,7 @@ class Roupa:
             'cor': self.__cor,
             'id_tipo': self.__id_tipo,
             'detalhes': self.__detalhes,
-            'id_Roupa': self.__id_Roupa
+            'id_cliente': self.__id_cliente
             }
 
 
@@ -50,8 +50,8 @@ class Roupa:
         if detalhes != None: self.__detalhes = detalhes
         else: raise ValueError("Formato dos detalhes inválido")
 
-    def set_idRoupa(self,id_Roupa):
-        if isinstance(id_Roupa,int): self.__id_Roupa = id_Roupa
+    def set_idCliente(self,id_cliente):
+        if isinstance(id_cliente,int): self.__id_cliente = id_cliente
         else: raise ValueError("id Roupa na área roupa inválido")
 
     @property
@@ -75,8 +75,8 @@ class Roupa:
         return self.__detalhes
     
     @property
-    def id_Roupa(self):
-        return self.__id_Roupa
+    def id_cliente(self):
+        return self.__id_cliente
 
 class Roupas:
     objetos = []
@@ -136,7 +136,7 @@ class Roupas:
             with open("Data/roupa.json", mode='r') as arquivo:
                 roupas_json = json.load(arquivo)
                 for obj in roupas_json:
-                    roupa = Roupa(obj["id"], obj["nome_roupa"],obj["cor"],obj["id_tipo"], obj["detalhes"],obj["id_Roupa"])
+                    roupa = Roupa(obj["id"], obj["nome_roupa"],obj["cor"],obj["id_tipo"], obj["detalhes"],obj["id_cliente"])
                     cls.objetos.append(roupa)
         
         except FileNotFoundError:

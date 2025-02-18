@@ -5,7 +5,7 @@ namespace Adm.Models
 {
     public abstract class CRUD<T> where T : Inter
     {
-        protected List<T> objetos = new List<T>();
+         protected List<T> objetos = new List<T>();
 
         public void Inserir(T obj)
         {
@@ -13,14 +13,16 @@ namespace Adm.Models
             int id = 0;
             foreach (T x in objetos)
             {
-                if (x.GetId() > id)
+                if (x.getId() > id)
                 {
-                    id = x.GetId();
+                    id = x.getId();
                 }
             }
-            obj.SetId(id + 1);
+            obj.setId(id + 1);
             objetos.Add(obj);
             Salvar();
+
+            
         }
 
         public List<T> Listar()
@@ -34,7 +36,7 @@ namespace Adm.Models
             Abrir();
             foreach (T x in objetos)
             {
-                if (x.GetId() == id)
+                if (x.getId() == id)
                 {
                     return x;
                 }
@@ -44,7 +46,7 @@ namespace Adm.Models
 
         public void Atualizar(T obj)
         {
-            T x = ListarId(obj.GetId());
+            T x = ListarId(obj.getId());
             if (x != null)
             {
                 objetos.Remove(x);
@@ -55,7 +57,7 @@ namespace Adm.Models
 
         public void Excluir(T obj)
         {
-            T x = ListarId(obj.GetId());
+            T x = ListarId(obj.getId());
             if (x != null)
             {
                 objetos.Remove(x);
