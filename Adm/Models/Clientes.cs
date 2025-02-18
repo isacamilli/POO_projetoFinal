@@ -5,9 +5,10 @@ using System.IO;
 
 namespace Adm.Models
 {
-    public class Clientes : CRUD<Cliente> {
-
-
+    // Classe Clientes herda de CRUD<Cliente>
+    public class Clientes : CRUD<Cliente>
+    {
+        // Método para salvar os clientes no arquivo JSON
         public static void Salvar()
         {
             if (!Directory.Exists("Data"))
@@ -15,17 +16,20 @@ namespace Adm.Models
                 Directory.CreateDirectory("Data");
             }
 
-            using (StreamWriter arquivo = new StreamWriter("Data/cliente.json"))
+            try
             {
-                var dados = new List<Dictionary<string, object>>();
-                foreach (var cliente in objetos)
+                using (StreamWriter arquivo = new StreamWriter("Data/cliente.json"))
                 {
-                    dados.Add(cliente.ToDict());  // Convertendo o cliente para dicionário
-                }
+                    var dados = new List<Dictionary<string, object>>();
+                    foreach (var cliente in objetos)
+                    {
+                        dados.Add(cliente.ToDict());  // Convertendo o cliente para dicionário
+                    }
 
-                // Serializar a lista de dicionários e gravar no arquivo JSON
-                string json = JsonConvert.SerializeObject(dados);
-                arquivo.Write(json);
+                    // Serializar a lista de dicionários e gravar no arquivo JSON
+                    string json = JsonConvert.SerializeObject(dados);
+                    arquivo.Write(json);
+                }
             }
             catch (IOException e)
             {
@@ -34,10 +38,13 @@ namespace Adm.Models
         }
 
         // Sobrescrevendo o método abrir
-        public static void Abrir(){
-            try {
-                using (StreamReader reader = new StreamReader("Data/cliente.json")) {
-                    string json = reader.ReadToEnd(); 
+        public static void Abrir()
+        {
+            try
+            {
+                using (StreamReader reader = new StreamReader("Data/cliente.json"))
+                {
+                    string json = reader.ReadToEnd();  // Lê o conteúdo do arquivo JSON
                     var listaClientes = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
 
                     if (listaClientes != null)
@@ -61,8 +68,8 @@ namespace Adm.Models
             }
             catch (FileNotFoundException)
             {
-
-                        }
+                // Não faz nada se o arquivo não for encontrado
+            }
             catch (IOException e)
             {
                 Console.WriteLine("Erro de I/O: " + e.Message);

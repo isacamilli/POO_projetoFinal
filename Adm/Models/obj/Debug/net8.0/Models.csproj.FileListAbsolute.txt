@@ -1,0 +1,5 @@
+/workspaces/POO_projetoFinal/Adm/Models/obj/Debug/net8.0/Models.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/POO_projetoFinal/Adm/Models/obj/Debug/net8.0/Models.AssemblyInfoInputs.cache
+/workspaces/POO_projetoFinal/Adm/Models/obj/Debug/net8.0/Models.AssemblyInfo.cs
+/workspaces/POO_projetoFinal/Adm/Models/obj/Debug/net8.0/Models.csproj.CoreCompileInputs.cache
+/workspaces/POO_projetoFinal/Adm/Models/obj/Debug/net8.0/Models.sourcelink.json
