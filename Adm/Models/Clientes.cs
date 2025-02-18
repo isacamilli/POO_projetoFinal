@@ -9,7 +9,7 @@ namespace Adm.Models
     public class Clientes : CRUD<Cliente>
     {
         // Método para salvar os clientes no arquivo JSON
-        public static void Salvar()
+        public override void Salvar()
         {
             if (!Directory.Exists("Data"))
             {
@@ -38,7 +38,7 @@ namespace Adm.Models
         }
 
         // Sobrescrevendo o método abrir
-        public static void Abrir()
+        public override void Abrir()
         {
             try
             {
@@ -72,7 +72,7 @@ namespace Adm.Models
             }
             catch (IOException e)
             {
-                Console.WriteLine("Erro de I/O: " + e.Message);
+        
             }
         }
     }

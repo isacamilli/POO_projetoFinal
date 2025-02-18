@@ -1,4 +1,3 @@
-// Cliente.cs
 using System;
 using System.Collections.Generic;
 
@@ -6,6 +5,7 @@ namespace Adm.Models
 {
     public class Cliente : Inter
     {
+        // Atributos privados
         private int id;
         private string nome;
         private string email;
@@ -13,8 +13,10 @@ namespace Adm.Models
         private string senha;
         private bool adm;
 
-        public Cliente(int id, string nome, string email, string fone, string senha, bool adm) {
-            SetId(id);
+        // Construtor que apenas inicializa os campos, sem validação
+        public Cliente(int id, string nome, string email, string fone, string senha, bool adm)
+        {
+            SetId(id);   // Usando os setters para garantir a validação
             SetNome(nome);
             SetEmail(email);
             SetFone(fone);
@@ -22,52 +24,28 @@ namespace Adm.Models
             SetAdm(adm);
         }
 
-        public int GetId()
-        {
-            return id;
-        }
-
+        // Métodos setters com validação
         public void SetId(int id)
         {
             if (id < 0)
             {
-                throw new ArgumentException("id inválido");
+                throw new ArgumentException("ID inválido");
             }
             this.id = id;
         }
 
-        public Dictionary<string, object> ToDict()
-        {
-            var dict = new Dictionary<string, object>
-            {
-                { "id", this.id },
-                { "nome", this.nome },
-                { "email", this.email },
-                { "fone", this.fone },
-                { "senha", this.senha },
-                { "adm", this.adm }
-            };
-            return dict;
-        }
-
-        public override string ToString()
-        {
-            return $"Cliente: id={this.id}, nome={this.nome}, email={this.email}, fone={this.fone}, senha={this.senha}, adm={this.adm}";
-        }
-
-        // Métodos setters
         public void SetNome(string nome)
         {
-            if (string.IsNullOrEmpty(nome))
+            if (string.IsNullOrWhiteSpace(nome))
             {
-                throw new ArgumentException("nome não pode ser vazio");
+                throw new ArgumentException("Nome não pode ser vazio");
             }
             this.nome = nome;
         }
 
         public void SetEmail(string email)
         {
-            if (email == null || !(email is string))
+            if (string.IsNullOrWhiteSpace(email))
             {
                 throw new ArgumentException("Email inválido");
             }
@@ -76,18 +54,18 @@ namespace Adm.Models
 
         public void SetFone(string fone)
         {
-            if (string.IsNullOrEmpty(fone))
+            if (string.IsNullOrWhiteSpace(fone))
             {
-                throw new ArgumentException("fone não pode ser vazio");
+                throw new ArgumentException("Fone não pode ser vazio");
             }
             this.fone = fone;
         }
 
         public void SetSenha(string senha)
         {
-            if (string.IsNullOrEmpty(senha))
+            if (string.IsNullOrWhiteSpace(senha))
             {
-                throw new ArgumentException("senha não pode ser vazia");
+                throw new ArgumentException("Senha não pode ser vazia");
             }
             this.senha = senha;
         }
@@ -98,29 +76,31 @@ namespace Adm.Models
         }
 
         // Métodos getters
-        public string GetNome()
+        public int GetId() => id;
+        public string GetNome() => nome;
+        public string GetEmail() => email;
+        public string GetFone() => fone;
+        public string GetSenha() => senha;
+        public bool IsAdm() => adm;
+
+        // Método para converter cliente em dicionário
+        public Dictionary<string, object> ToDict()
         {
-            return nome;
+            return new Dictionary<string, object>
+            {
+                { "id", id },
+                { "nome", nome },
+                { "email", email },
+                { "fone", fone },
+                { "senha", senha },
+                { "adm", adm }
+            };
         }
 
-        public string GetEmail()
+        // Método ToString
+        public override string ToString()
         {
-            return email;
-        }
-
-        public string GetFone()
-        {
-            return fone;
-        }
-
-        public string GetSenha()
-        {
-            return senha;
-        }
-
-        public bool IsAdm()
-        {
-            return adm;
+            return $"Cliente: id={id}, nome={nome}, email={email}, fone={fone}, senha={senha}, adm={adm}";
         }
     }
 }
