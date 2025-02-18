@@ -38,5 +38,8 @@ from combinacao import Combinacao, Combinacoes
 # combinacao1 = Combinacao(1,"natal",1)
 # Combinacoes.inserir(combinacao1)
 
-cliente_oto = Cliente(1,"oi",'oi',136,'sd',False)
-Clientes.inserir(cliente_oto)
+# cliente_oto = Cliente(1,"oi",'oi',136,'sd',False)
+# Clientes.inserir(cliente_oto)
+
+
+Clientes.excluir(Cliente(1,"gust",'email',1234,'senha',False))

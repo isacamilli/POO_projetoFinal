@@ -22,7 +22,6 @@ namespace Adm.Models
             SetAdm(adm);
         }
 
-        // Implementação dos métodos da interface Inter
         public int GetId()
         {
             return id;
@@ -37,7 +36,6 @@ namespace Adm.Models
             this.id = id;
         }
 
-        // Método que retorna um dicionário (equivalente ao Map em Java)
         public Dictionary<string, object> ToDict()
         {
             var dict = new Dictionary<string, object>
@@ -52,7 +50,6 @@ namespace Adm.Models
             return dict;
         }
 
-        // Sobrescrevendo o método ToString() para representação em string
         public override string ToString()
         {
             return $"Cliente: id={this.id}, nome={this.nome}, email={this.email}, fone={this.fone}, senha={this.senha}, adm={this.adm}";
@@ -70,7 +67,7 @@ namespace Adm.Models
 
         public void SetEmail(string email)
         {
-            if (email == null || !(email is string)) // Verifica se é um string válido
+            if (email == null || !(email is string))
             {
                 throw new ArgumentException("Email inválido");
             }

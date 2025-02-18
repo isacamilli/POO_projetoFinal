@@ -7,21 +7,18 @@ namespace Adm.Models
 {
     public class Clientes : CRUD<Cliente> {
 
-        private static List<Cliente> Objetos = new List<Cliente>();
 
         public static void Salvar()
         {
-            // Verificar se o diretório 'Data' existe, se não, criar
             if (!Directory.Exists("Data"))
             {
                 Directory.CreateDirectory("Data");
             }
 
-            // Escrever os dados no arquivo "cliente.json"
             using (StreamWriter arquivo = new StreamWriter("Data/cliente.json"))
             {
                 var dados = new List<Dictionary<string, object>>();
-                foreach (var cliente in Objetos)
+                foreach (var cliente in objetos)
                 {
                     dados.Add(cliente.ToDict());  // Convertendo o cliente para dicionário
                 }
@@ -37,36 +34,38 @@ namespace Adm.Models
         }
 
         // Sobrescrevendo o método abrir
-        public override void Abrir()
-        {
-            // Inicializa a lista de objetos para evitar NullReferenceException
-            if (Objetos == null)
-            {
-                Objetos = new List<Cliente>();  // Se Objetos for null, inicializa com lista vazia
-            }
+        public static void Abrir(){
+            try {
+                using (StreamReader reader = new StreamReader("Data/cliente.json")) {
+                    string json = reader.ReadToEnd(); 
+                    var listaClientes = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
 
-            try
-            {
-                // Lê o arquivo JSON
-                using (StreamReader reader = new StreamReader("Data/cliente.json"))
-                {
-                    string json = reader.ReadToEnd();  // Lê todo o conteúdo do arquivo JSON
-                    // Desserializa o JSON para a lista de objetos
-                    List<Cliente> listaClientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
                     if (listaClientes != null)
                     {
-                        Objetos = listaClientes; // Se o arquivo contiver dados, atualiza a lista Objetos
+                        foreach (var obj in listaClientes)
+                        {
+                            // Cria o objeto Cliente a partir do dicionário
+                            var cliente = new Cliente(
+                                Convert.ToInt32(obj["id"]),
+                                obj["nome"].ToString(),
+                                obj["email"].ToString(),
+                                obj["fone"].ToString(),
+                                obj["senha"].ToString(),
+                                Convert.ToBoolean(obj["adm"])
+                            );
+
+                            objetos.Add(cliente);  // Adiciona o cliente à lista
+                        }
                     }
                 }
             }
             catch (FileNotFoundException)
             {
-                // Arquivo não encontrado, não há dados para carregar
-                Objetos = new List<Cliente>(); // Inicializa a lista vazia
-            }
+
+                        }
             catch (IOException e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Erro de I/O: " + e.Message);
             }
         }
     }
