@@ -1,6 +1,5 @@
 import streamlit as st
-from ..Models.cliente import Cliente, Clientes  # Se estiver dentro de um pacote
-
+from ..Models.cliente import Cliente, Clientes
 
 class Login_View:
     @staticmethod

@@ -2,13 +2,14 @@ import json
 import os
 
 class Roupa:
-    def __init__(self,id:int, nome_roupa, cor,tipo:int,detalhes,id_Roupa:int):
+    def __init__(self,id:int, nome_roupa, cor, tipo:int,detalhes, id_Roupa:int, id_cliente:int):
         self.set_id(id)
         self.set_nomeRoupa(nome_roupa)
         self.set_cor(cor)
         self.set_idTipo(tipo)
         self.set_detalhes(detalhes)
         self.set_idRoupa(id_Roupa)
+        self.set_id_cliente(id_cliente)
 
     def __str__(self) -> str:
         return f"""Roupa:
@@ -17,7 +18,8 @@ class Roupa:
                  , cor= {self.__cor} 
                  , id_tipo= {self.__id_tipo} 
                  , detalhes= {self.__detalhes} 
-                 , id_Roupa= {self.__id_Roupa}"""
+                 , id_Roupa= {self.__id_Roupa}
+                 , id_cliente= {self.__id_cliente}"""
 
     def to_dict(self):
         return {
@@ -26,7 +28,8 @@ class Roupa:
             'cor': self.__cor,
             'id_tipo': self.__id_tipo,
             'detalhes': self.__detalhes,
-            'id_Roupa': self.__id_Roupa
+            'id_Roupa': self.__id_Roupa,
+            'id_cliente': self.__id_cliente
             }
 
 
@@ -54,6 +57,10 @@ class Roupa:
         if isinstance(id_Roupa,int): self.__id_Roupa = id_Roupa
         else: raise ValueError("id Roupa na área roupa inválido")
 
+    def set_id_cliente(self,id_cliente):
+        if isinstance(id_cliente,int): self.__id_cliente = id_cliente
+        else: raise ValueError("id cliente inválido")
+
     @property
     def id(self):
         return self.__id
@@ -77,18 +84,27 @@ class Roupa:
     @property
     def id_Roupa(self):
         return self.__id_Roupa
+    
+    @property
+    def id_cliente(self):
+        return self.__id_cliente
 
 class Roupas:
     objetos = []
 
     @classmethod
-    def inserir(cls,obj):
+    def inserir(cls, obj):
         cls.abrir()
         id = 0
         for x in cls.objetos:
-            if x.id > id : id = x.id
+            if x.id > id:
+                id = x.id
 
-        obj.set_id(id+1)
+        obj.set_id(id + 1)
+
+        # Atribuindo id_Roupa automaticamente
+        id_roupa = len(cls.objetos) + 1  # id_roupa único baseado na quantidade de roupas já presentes
+        obj.set_idRoupa(id_roupa)
 
         cls.objetos.append(obj)
         cls.salvar()
@@ -97,38 +113,43 @@ class Roupas:
     def listar(cls):
         cls.abrir()
         return cls.objetos
-    
-    @classmethod 
-    def listar_id(cls,id):
+
+    @classmethod
+    def listar_id(cls, id):
         cls.abrir()
         for x in cls.objetos:
-            if x.id == id: return x
+            if x.id == id:
+                return x
         return None
-    
+
     @classmethod
-    def atualizar(cls,obj):
+    def atualizar(cls, obj):
         x = cls.listar_id(obj.id)
-        if x != None:
+        if x is not None:
             cls.objetos.remove(x)
             cls.objetos.append(obj)
             cls.salvar()
 
     @classmethod
-    def excluir(cls,obj):
+    def excluir(cls, obj):
         x = cls.listar_id(obj.id)
-        if x != None:
+        if x is not None:
             cls.objetos.remove(x)
             cls.salvar()
 
     @classmethod
     def salvar(cls):
+        if not cls.objetos:
+            print("Nenhuma roupa para salvar.")
+            return
+
         if not os.path.exists('Data'):
             os.makedirs('Data')
 
         with open("Data/roupa.json", mode="w") as arquivo:
-            dados = [Roupa.to_dict() for Roupa in cls.objetos]
-            print(dados)
+            dados = [roupa.to_dict() for roupa in cls.objetos]
             json.dump(dados, arquivo)
+
     @classmethod
     def abrir(cls):
         cls.objetos = []
@@ -136,9 +157,7 @@ class Roupas:
             with open("Data/roupa.json", mode='r') as arquivo:
                 roupas_json = json.load(arquivo)
                 for obj in roupas_json:
-                    roupa = Roupa(obj["id"], obj["nome_roupa"],obj["cor"],obj["id_tipo"], obj["detalhes"],obj["id_Roupa"])
+                    roupa = Roupa(obj["id"], obj["nome_roupa"], obj["cor"], obj["id_tipo"], obj["detalhes"], obj["id_Roupa"], obj["id_cliente"])
                     cls.objetos.append(roupa)
-        
         except FileNotFoundError:
-           # raise ValueError("Arquivo roupas não encontrado")
             pass

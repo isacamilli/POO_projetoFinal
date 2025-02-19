@@ -16,9 +16,9 @@ for cliente in Clientes.listar():
 
 # Teste Roupa
 roupas = [
-  Roupa(1, "Mizuno", "Preta", 2, "Strisce bianche", 1),
-  Roupa(5, "Maglietta", "Azzura", 1, "Tank top", 1),
-  Roupa(90, "Scarpe", "Rosa", 3, "Nere", 2)
+  Roupa(1, "Mizuno", "Preta", 2, "Strisce bianche", 1, 1),
+  Roupa(5, "Maglietta", "Azzura", 1, "Tank top", 1, 2),
+  Roupa(90, "Scarpe", "Rosa", 3, "Nere", 2, 1)
 ]
 
 for roupa in roupas:
