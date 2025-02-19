@@ -1,88 +1,88 @@
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
+// using Newtonsoft.Json;
+// using System;
+// using System.Collections.Generic;
+// using System.IO;
 
-namespace Adm.Models
-{
-    public class Climas : CRUD<PeriodoClima>
-    {
-        public override void Salvar()
-        {
-            if (!Directory.Exists("../../Data"))
-            {
-                Directory.CreateDirectory("../../Data");
-            }
+// namespace Adm.Models
+// {
+//     public class Climas : CRUD<PeriodoClima>
+//     {
+//         public override void Salvar()
+//         {
+//             if (!Directory.Exists("../../Data"))
+//             {
+//                 Directory.CreateDirectory("../../Data");
+//             }
 
-            try
-            {
-                using (StreamWriter arquivo = new StreamWriter("../../Data/clima.json"))
-                {
-                    var dados = new List<Dictionary<string, object>>();
-                    foreach (var clima in objetos)
-                    {
-                        dados.Add(new Dictionary<string, object>
-                        {
-                            { "id", clima.Id },
-                            { "cidade", clima.Cidade },
-                            { "pais", clima.Pais },
-                            { "data", clima.Data.ToString("dd/MM/yyyy HH:mm") },
-                            { "clima", clima.Clima },
-                            { "periodo", clima.Periodo },
-                            { "temperatura", clima.Temperatura },
-                            { "sensacao_termica", clima.SensacaoTermica }
-                        });
-                    }
+//             try
+//             {
+//                 using (StreamWriter arquivo = new StreamWriter("../../Data/roupa.json")){
+//                 List<Dictionary<string, object>> dados = new List<Dictionary<string, object>>();
 
-                    string json = JsonConvert.SerializeObject(dados, Formatting.Indented);
-                    arquivo.Write(json);
-                }
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
+//                 foreach (var clima in objetos)
+//                 {
+//                     dados.Add(new Dictionary<string, object>
+//                     {
+//                         { "id", clima.getId() },
+//                         { "cidade", clima.getCidade() },
+//                         { "pais", clima.getPais() },
+//                         { "data", clima.getData().ToString("dd/MM/yyyy HH:mm") },
+//                         { "clima", clima.getClima() },
+//                         { "periodo", clima.getPeriodo() },
+//                         { "temperatura", clima.getTemperatura() },
+//                         { "sensacao_termica", clima.getSensacaoTermica() }
+//                     });
+//                 }
 
-        public override void Abrir()
-        {
-            try
-            {
-                using (StreamReader reader = new StreamReader("../../Data/clima.json"))
-                {
-                    string json = reader.ReadToEnd();
-                    var listaClimas = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
+//                 // Serializa os dados para JSON e escreve no arquivo
+//                 File.WriteAllText("../../Data/clima.json", JsonConvert.SerializeObject(dados, Formatting.Indented));
+//             }
+//             }
+//             catch (IOException e)
+//             {
+//                 Console.WriteLine(e.Message);
+//             }
+//         }
 
-                    if (listaClimas != null)
-                    {
-                        objetos.Clear();
-                        foreach (var obj in listaClimas)
-                        {
-                            var clima = new PeriodoClima(
-                                Convert.ToInt32(obj["id"]),
-                                obj["cidade"].ToString()
-                            );
+//         public override void Abrir()
+//         {
+//             try
+//             {
+//                 using (StreamReader reader = new StreamReader("../../Data/clima.json"))
+//                 {
+//                     string json = reader.ReadToEnd();
+//                     var listaClimas = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
 
-                            clima.Clima = obj["clima"].ToString();
-                            clima.Pais = obj["pais"].ToString();
-                            clima.Temperatura = Convert.ToSingle(obj["temperatura"]);
-                            clima.SensacaoTermica = Convert.ToSingle(obj["sensacao_termica"]);
-                            clima.Data = DateTime.Parse(obj["data"].ToString());
-                            clima.Periodo = obj["periodo"].ToString();
+//                     if (listaClimas != null)
+//                     {
+//                         objetos.Clear();
+//                         foreach (var obj in listaClimas)
+//                         {
+//                             var clima = new PeriodoClima(
+//                                 Convert.ToInt32(obj["id"]),
+//                                 obj["cidade"].ToString(),
+//                                 obj["clima"].ToString(),
+//                                 obj["pais"].ToString(),
+//                                 Convert.ToSingle(obj["temperatura"]),
+//                                 Convert.ToSingle(obj["sensacao_termica"]),
+//                                 DateTime.Parse(obj["data"].ToString()),
+//                                 obj["periodo"].ToString()
+//                             );
 
-                            objetos.Add(clima);
-                        }
-                    }
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                // Arquivo ainda não existe, não faz nada
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
-    }
-}
+
+//                             objetos.Add(clima);
+//                         }
+//                     }
+//                 }
+//             }
+//             catch (FileNotFoundException)
+//             {
+//                 // Arquivo ainda não existe, não faz nada
+//             }
+//             catch (IOException e)
+//             {
+//                 Console.WriteLine(e.Message);
+//             }
+//         }
+//     }
+// }
