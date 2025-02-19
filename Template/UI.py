@@ -3,6 +3,7 @@ from collections import defaultdict
 from User.View.login_view import Login_View
 from User.View.roupa_view import RoupaView
 from Template.clima_ui import Mostrar_clima
+from Template.adm_ui import AdmUI
 
 class UI:
     @classmethod
@@ -20,10 +21,16 @@ class UI:
             initial_sidebar_state="expanded"
         )
 
-        if st.session_state.page == "home":
-            cls.__cliente()
-        elif st.session_state.page == "login":
-            cls.__login()
+        match st.session_state.page:
+                
+            case "home":
+                cls.__cliente()
+                
+            case "login":
+                cls.__login()
+
+            case "adm":
+                AdmUI.adm()
 
     @classmethod
     def __login(cls):
