@@ -62,12 +62,7 @@ class Itens_roupas:
             if x.id == id : return x
         return None
     
-    @classmethod
-    def listar_roupas(cls,id):
-        roupas_lista = []
-
-        cls.abrir()
-        
+    
     @classmethod
     def listar_roupas(cls,id):
         roupas_lista = []
@@ -77,7 +72,13 @@ class Itens_roupas:
         for x in cls.objetos:
             if x.id == id:
                 for i in range(len(x.lista_id_roupas)):
-                    roupas_lista.append(Roupas.listar_id(x.lista_id_roupas[i]))           
+                    num = x.lista_id_roupas[i]
+                    print(num)
+                    roupa = Roupas.listar_id(num)  # Aqui você deve garantir que `listar_id` retorna um objeto completo
+                    if roupa:
+                        print(roupa)  # Se a roupa for encontrada, adicione à lista
+                        roupas_lista.append(roupa)
+                        print(roupas_lista)
                 return roupas_lista
 
         return None

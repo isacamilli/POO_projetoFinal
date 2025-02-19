@@ -29,7 +29,8 @@ Tipos_roupas.inserir(tipo_roupa2)
 
 itens_roupas1 = Item_roupa(4,[1,2])
 Itens_roupas.inserir(itens_roupas1)
-Itens_roupas.listar_roupas(1)
+x = Itens_roupas.listar_roupas(1)
+print("\n",x,"\n")
 
 clima1 = Periodo_Clima(1,"natal")
 clima1.clima_cidade()
@@ -43,3 +44,7 @@ Clientes.inserir(cliente_oto)
 
 
 Clientes.excluir(Cliente(1,"gust",'email',1234,'senha',False))
+
+obj = Roupas.listar_id(1)
+
+print(obj)
