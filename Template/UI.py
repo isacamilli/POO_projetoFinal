@@ -1,7 +1,8 @@
 import streamlit as st
+from collections import defaultdict
 from User.View.login_view import Login_View
+from User.View.roupa_view import RoupaView
 from Template.clima_ui import Mostrar_clima
-from Template.roupa_ui import UI_Roupas  # Importando a UI_Roupas da roupa_ui
 
 class UI:
     @classmethod
@@ -73,16 +74,29 @@ class UI:
         st.markdown("<h1 style='text-align: center;'>🌤️ Cloud Wear</h1>", unsafe_allow_html=True)
         st.header("Roupas no armário")
 
-        # Usando a UI_Roupas da roupa_ui para exibir o armário
-        UI_Roupas.exibir_armario(1)  # Exibe o armário de um cliente (id_cliente = 1)
+        roupas = RoupaView.armario(1)  # Obtendo as roupas do usuário
+        roupas_por_tipo = defaultdict(list)
+
+        for roupa in roupas:
+            roupas_por_tipo[roupa.tipo].append(roupa)
+
+        for tipo, lista_roupas in roupas_por_tipo.items():
+            st.subheader(f"🧥 {tipo}")
+            for roupa in lista_roupas:
+                with st.expander(roupa.nome):
+                    st.text(f"Cor: {roupa.cor}")
+                    st.text(f"Detalhes: {roupa.detalhes}")
 
     @classmethod
     def __cadastro_roupa(cls):
         st.markdown("<h1 style='text-align: center;'>🌤️ Cloud Wear</h1>", unsafe_allow_html=True)
         st.header("Cadastrar Nova Roupa")
 
+        nome_roupa = st.text_input("Nome da Roupa")
+        cor_roupa = st.text_input("Cor da Roupa")
+        tipo_roupa = st.text_input("Tipo da Roupa")
+        desc_roupa = st.text_input("Descrição da Roupa")
 
         if st.button("Cadastrar"):
-            # Usando a UI_Roupas para cadastrar a roupa
-            UI_Roupas.cadastrar_roupa()  # Chama a função de cadastro diretamente da UI_Roupas
+            RoupaView.cadastrar_roupa(nome_roupa, cor_roupa, int(tipo_roupa), desc_roupa, 0, 1)
             st.success("Roupa cadastrada com sucesso!")
