@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "C/N3Zo+K8fY=",
+  "dgSpecHash": "txtQYwm08kM=",
   "success": true,
-  "projectFilePath": "/workspaces/POO_projetoFinal/Adm/View/View.csproj",
+  "projectFilePath": "C:\\Users\\20241014040028\\Documents\\POO_projetoFinal\\Adm\\View\\View.csproj",
   "expectedPackageFiles": [
-    "/home/codespace/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\20241014040028\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

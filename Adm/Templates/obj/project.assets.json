@@ -23,6 +23,19 @@
         "runtime": {
           "bin/placeholder/Models.dll": {}
         }
+      },
+      "View/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/View.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/View.dll": {}
+        }
       }
     }
   },
@@ -53,40 +66,48 @@
       "type": "project",
       "path": "../Models/Models.csproj",
       "msbuildProject": "../Models/Models.csproj"
+    },
+    "View/1.0.0": {
+      "type": "project",
+      "path": "../View/View.csproj",
+      "msbuildProject": "../View/View.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Models >= 1.0.0"
+      "View >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "/home/codespace/.nuget/packages/": {}
+    "C:\\Users\\20241014040028\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/workspaces/POO_projetoFinal/Adm/UI/UI.csproj",
+      "projectUniqueName": "C:\\Users\\20241014040028\\Documents\\POO_projetoFinal\\Adm\\templates\\UI.csproj",
       "projectName": "UI",
-      "projectPath": "/workspaces/POO_projetoFinal/Adm/UI/UI.csproj",
-      "packagesPath": "/home/codespace/.nuget/packages/",
-      "outputPath": "/workspaces/POO_projetoFinal/Adm/UI/obj/",
+      "projectPath": "C:\\Users\\20241014040028\\Documents\\POO_projetoFinal\\Adm\\templates\\UI.csproj",
+      "packagesPath": "C:\\Users\\20241014040028\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\20241014040028\\Documents\\POO_projetoFinal\\Adm\\templates\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/codespace/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\20241014040028\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/workspaces/POO_projetoFinal/Adm/Models/Models.csproj": {
-              "projectPath": "/workspaces/POO_projetoFinal/Adm/Models/Models.csproj"
+            "C:\\Users\\20241014040028\\Documents\\POO_projetoFinal\\Adm\\View\\View.csproj": {
+              "projectPath": "C:\\Users\\20241014040028\\Documents\\POO_projetoFinal\\Adm\\View\\View.csproj"
             }
           }
         }
@@ -121,7 +142,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
