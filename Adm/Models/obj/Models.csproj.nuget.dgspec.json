@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/POO_projetoFinal/Adm/Models/Models.csproj": {}
+    "C:\\Users\\20241014040028\\Documents\\POO_projetoFinal\\Adm\\Models\\Models.csproj": {}
   },
   "projects": {
-    "/workspaces/POO_projetoFinal/Adm/Models/Models.csproj": {
+    "C:\\Users\\20241014040028\\Documents\\POO_projetoFinal\\Adm\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/POO_projetoFinal/Adm/Models/Models.csproj",
+        "projectUniqueName": "C:\\Users\\20241014040028\\Documents\\POO_projetoFinal\\Adm\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "/workspaces/POO_projetoFinal/Adm/Models/Models.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/POO_projetoFinal/Adm/Models/obj/",
+        "projectPath": "C:\\Users\\20241014040028\\Documents\\POO_projetoFinal\\Adm\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\20241014040028\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\20241014040028\\Documents\\POO_projetoFinal\\Adm\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\20241014040028\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -64,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

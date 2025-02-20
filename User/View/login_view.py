@@ -5,7 +5,7 @@ class Login_View:
     @staticmethod
     def login_authentication(user: str, password: str):
         for cliente in Clientes.listar():
-            if (cliente.email == user or cliente.nome == user) and cliente.senha == password:
+            if (cliente.email == user or cliente.nome == user.lower()) and cliente.senha == password:
                 if cliente.adm:
                     st.session_state.page = 'admin'
                     st.rerun()
@@ -38,7 +38,7 @@ class Login_View:
         if liberado:
             c = Cliente(
                 id = 0,
-                nome = Username,
+                nome = Username.lower(),
                 email = User_email,
                 fone = telefone,
                 senha = password
