@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Adm.Models;
 
 public class UI
@@ -10,13 +11,9 @@ public class UI
             SessionState.Page = "login";
         }
 
-        if (SessionState.User == null)
-        {
-            SessionState.User = null;
-        }
-
         Console.Title = "Cloud Wear";
 
+        // Loop contínuo até que o usuário saia
         while (true)
         {
             switch (SessionState.Page)
@@ -45,7 +42,7 @@ public class UI
         Console.Write("Senha: ");
         string senha = Console.ReadLine();
 
-        // autenticar o login
+        // Chama o método de autenticação
         LoginView.LoginAuthentication(usuario, senha);
     }
 
@@ -53,11 +50,11 @@ public class UI
     {
         Console.Clear();
         Console.WriteLine(" Cloud Wear");
-        Console.WriteLine("Bem-vindo ao Cloud Wear!");
+        Console.WriteLine("Bem-vindo ao Cloud Wear admin!");
 
-        // Lógica para exibir as opções do cliente
-        Console.WriteLine("1 - Visualizar roupas");
-        Console.WriteLine("2 - Gerenciar guarda-roupa");
+        // Menu de opções para o admin
+        Console.WriteLine("1 - Visualizar usuários");
+        Console.WriteLine("2 - Visualizar roupas");
         Console.WriteLine("3 - Sair");
 
         string opcao = Console.ReadLine();
@@ -65,10 +62,10 @@ public class UI
         switch (opcao)
         {
             case "1":
-                VisualizarRoupas();
+                VisualizarUser();
                 break;
             case "2":
-                GerenciarGuardaRoupa();
+                VisualizarRoupas();
                 break;
             case "3":
                 Sair();
@@ -81,22 +78,38 @@ public class UI
 
     private static void VisualizarRoupas()
     {
-        // roupas do cliente
-        Console.WriteLine("Roupas:");
-
+        // Aqui, você deve carregar e exibir as roupas cadastradas
+        Console.WriteLine("Roupas cadastradas:");
+        var roupas = Roupas.Listar();  // Listando as roupas
+        foreach (var roupa in roupas)
+        {
+            Console.WriteLine($"Nome: {roupa.getNome()}, Cor: {roupa.getCor()}, Tipo: {roupa.getTipo()}");
+        }
     }
 
-    private static void GerenciarGuardaRoupa()
+    private static void VisualizarUser()
     {
-        // guarda-roupa do cliente
-        Console.WriteLine("Guarda-roupa:");
-
+        // Aqui, você deve carregar e exibir os usuários cadastrados
+        Console.WriteLine("Usuários cadastrados:");
+        var clientes = Clientes.Listar();  // Listando os clientes
+        foreach (var cliente in clientes)
+        {
+            Console.WriteLine($"Nome: {cliente.getNome()}, Email: {cliente.getEmail()}");
+        }
     }
 
     private static void Sair()
     {
         // Lógica para sair do sistema
         Console.WriteLine("Saindo do sistema...");
-        Environment.Exit(0);
+        SessionState.Page = null;  // Resetando a página para null
+        break;  // Encerra o loop principal
     }
+}
+
+// Simulação de SessionState (se necessário)
+public static class SessionState
+{
+    public static string Page { get; set; }
+    public static Cliente User { get; set; }
 }

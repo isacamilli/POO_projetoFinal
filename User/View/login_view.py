@@ -8,10 +8,13 @@ class Login_View:
             if (cliente.email == user or cliente.nome == user) and cliente.senha == password:
                 if cliente.adm:
                     st.session_state.page = 'admin'
+                    st.rerun()
                 else:
                     st.session_state.page = 'home'
+                    st.rerun()
                 st.session_state.user = cliente
                 st.success(f"bem vindo, {cliente.nome}")
+
                 return
             
         st.error("email ou senha invalido!")

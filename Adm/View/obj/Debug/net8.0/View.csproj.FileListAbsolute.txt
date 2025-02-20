@@ -1,0 +1,6 @@
+/workspaces/POO_projetoFinal/Adm/View/obj/Debug/net8.0/View.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/POO_projetoFinal/Adm/View/obj/Debug/net8.0/View.AssemblyInfoInputs.cache
+/workspaces/POO_projetoFinal/Adm/View/obj/Debug/net8.0/View.AssemblyInfo.cs
+/workspaces/POO_projetoFinal/Adm/View/obj/Debug/net8.0/View.csproj.CoreCompileInputs.cache
+/workspaces/POO_projetoFinal/Adm/View/obj/Debug/net8.0/View.sourcelink.json
+/workspaces/POO_projetoFinal/Adm/View/obj/Debug/net8.0/View.csproj.AssemblyReference.cache

@@ -106,4 +106,3 @@ class UI:
 
         if st.button("Cadastrar"):
             RoupaView.cadastrar_roupa(nome_roupa, cor_roupa, int(tipo_roupa), desc_roupa, 0, 1)
-            st.success("Roupa cadastrada com sucesso!")

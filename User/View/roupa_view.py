@@ -8,7 +8,7 @@ class RoupaView:
         armario = []
 
         # olha se tem alguém logado
-        if "user" in st.session_state and st.session_state.user.id == id_cliente:
+        if "user" in st.session_state and st.session_state.user['id'] == id_cliente:
             for roupa in Roupas.listar():
                 if roupa.id_cliente == id_cliente:
                     armario.append(roupa)
