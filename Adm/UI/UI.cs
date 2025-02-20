@@ -27,6 +27,9 @@ public class UI
                 case "login":
                     Login();
                     break;
+                default:
+                    Console.WriteLine("Página não encontrada.");
+                    break;
             }
         }
     }
@@ -34,32 +37,8 @@ public class UI
     private static void Login()
     {
         Console.Clear();
-        Console.WriteLine("🌤️ Cloud Wear");
-        
-        Console.WriteLine("\nEscolha uma opção:");
-        Console.WriteLine("1 - Entrar");
-        Console.WriteLine("2 - Cadastro");
-        string opcao = Console.ReadLine();
-
-        switch (opcao)
-        {
-            case "1":
-                Entrar();
-                break;
-            case "2":
-                Cadastro();
-                break;
-            default:
-                Console.WriteLine("Opção inválida.");
-                break;
-        }
-    }
-
-    private static void Entrar()
-    {
-        Console.Clear();
-        Console.WriteLine("🌤️ Cloud Wear");
-        Console.WriteLine("\nAcesse sua conta");
+        Console.WriteLine(" Cloud Wear");
+        Console.WriteLine("Acesse sua conta");
 
         Console.Write("Nome de usuário ou Email: ");
         string usuario = Console.ReadLine();
@@ -70,48 +49,28 @@ public class UI
         LoginView.LoginAuthentication(usuario, senha);
     }
 
-    private static void Cadastro()
-    {
-        Console.Clear();
-        Console.WriteLine("🌤️ Cloud Wear");
-        Console.WriteLine("\nCriar uma nova conta");
-
-        Console.Write("Nome: ");
-        string usuario = Console.ReadLine();
-        Console.Write("Email: ");
-        string email = Console.ReadLine();
-        Console.Write("Telefone: ");
-        string fone = Console.ReadLine();
-        Console.Write("Senha: ");
-        string senha = Console.ReadLine();
-
-        // Chamada à view para registrar um novo usuário
-        LoginView.RegisterAuthentication(usuario, email, fone, senha);
-    }
-
     private static void Cliente()
     {
         Console.Clear();
-        Console.WriteLine("🌤️ Cloud Wear");
-        Console.WriteLine("\nMenu:");
-        Console.WriteLine("1 - Home");
-        Console.WriteLine("2 - Armário");
-        Console.WriteLine("3 - Cadastro de Roupa");
-        Console.WriteLine("4 - Sair");
+        Console.WriteLine(" Cloud Wear");
+        Console.WriteLine("Bem-vindo ao Cloud Wear!");
+
+        // Lógica para exibir as opções do cliente
+        Console.WriteLine("1 - Visualizar roupas");
+        Console.WriteLine("2 - Gerenciar guarda-roupa");
+        Console.WriteLine("3 - Sair");
+
         string opcao = Console.ReadLine();
 
         switch (opcao)
         {
             case "1":
-                Home();
+                VisualizarRoupas();
                 break;
             case "2":
-                Armario();
+                GerenciarGuardaRoupa();
                 break;
             case "3":
-                CadastroRoupa();
-                break;
-            case "4":
                 Sair();
                 break;
             default:
@@ -120,35 +79,24 @@ public class UI
         }
     }
 
-    private static void Home()
+    private static void VisualizarRoupas()
     {
-        Console.Clear();
-        Console.WriteLine("🌤️ Cloud Wear");
-        Console.WriteLine("\nConfira o clima para escolher a combinação certa.");
+        // Lógica para exibir as roupas do cliente
+        Console.WriteLine("Roupas:");
+        // ...
     }
 
-    private static void Armario()
+    private static void GerenciarGuardaRoupa()
     {
-        Console.Clear();
-        Console.WriteLine("🌤️ Cloud Wear");
-        Console.WriteLine("\nRoupas no armário");
-
-        // Adicione lógica para exibir roupas aqui
-    }
-
-    private static void CadastroRoupa()
-    {
-        Console.Clear();
-        Console.WriteLine("🌤️ Cloud Wear");
-        Console.WriteLine("\nCadastrar Nova Roupa");
-
-        // Adicione lógica para cadastro de roupa aqui
+        // Lógica para gerenciar o guarda-roupa do cliente
+        Console.WriteLine("Guarda-roupa:");
+        // ...
     }
 
     private static void Sair()
     {
-        SessionState.Page = "login";
-        Console.Clear();
-        Console.WriteLine("Deslogado com sucesso. Redirecionando para login...");
+        // Lógica para sair do sistema
+        Console.WriteLine("Saindo do sistema...");
+        Environment.Exit(0);
     }
 }
