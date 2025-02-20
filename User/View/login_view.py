@@ -17,11 +17,20 @@ class Login_View:
         st.error("email ou senha invalido!")
 
     @staticmethod
-    def register_authentication(Username: str, User_email: str, telefone : str, password: str):
+    def register_authentication(Username: str, User_email: str, telefone: str, password: str):
         liberado = True
         for cliente in Clientes.listar():
-            if cliente.email == User_email:
-               liberado = False
+            if cliente.email == User_email or cliente.nome == Username:
+                liberado = False
+                st.error("Usuário já existente")
+
+        if Username in ["adm", "ADM", "Adm", "admin", "ADMIN", "Admin", "administrador", "ADMINISTRADOR", "Administrador"]:
+            liberado = False
+            st.error("Nome de usuário inapropriado")
+
+        if any(65 <= ord(c) <= 90 or 97 <= ord(c) <= 122 for c in telefone):    #ord
+            liberado = False
+            st.error("Telefone não pode conter letras")
 
         if liberado:
             c = Cliente(
@@ -33,5 +42,3 @@ class Login_View:
             )
             Clientes.inserir(c)
             st.success("Usuário cadastrado com sucesso")
-        else:
-            st.error("ja existe um usuario com esse email")
