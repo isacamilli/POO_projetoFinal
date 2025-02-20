@@ -22,7 +22,7 @@ public class UI
             switch (SessionState.Page)
             {
                 case "home":
-                    Cliente();
+                    Adm();
                     break;
                 case "login":
                     Login();
@@ -45,11 +45,11 @@ public class UI
         Console.Write("Senha: ");
         string senha = Console.ReadLine();
 
-        // Chamada à view para autenticar o login
+        // autenticar o login
         LoginView.LoginAuthentication(usuario, senha);
     }
 
-    private static void Cliente()
+    private static void Adm()
     {
         Console.Clear();
         Console.WriteLine(" Cloud Wear");
@@ -81,16 +81,16 @@ public class UI
 
     private static void VisualizarRoupas()
     {
-        // Lógica para exibir as roupas do cliente
+        // roupas do cliente
         Console.WriteLine("Roupas:");
-        // ...
+
     }
 
     private static void GerenciarGuardaRoupa()
     {
-        // Lógica para gerenciar o guarda-roupa do cliente
+        // guarda-roupa do cliente
         Console.WriteLine("Guarda-roupa:");
-        // ...
+
     }
 
     private static void Sair()

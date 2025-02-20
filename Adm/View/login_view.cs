@@ -16,12 +16,10 @@ public class LoginView
             {
                 if (cliente.isAdm())
                 {
-                    // Alterar página para admin (exemplo)
                     SessionState.Page = "admin";
                 }
                 else
                 {
-                    // Alterar página para home (exemplo)
                     SessionState.Page = "home";
                 }
 
