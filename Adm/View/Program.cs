@@ -9,7 +9,7 @@ namespace Adm.View
             // Seu código aqui, por exemplo:
             Login.CriarAdmin();
 
-            Cliente cliente = new Cliente(1,"isa","admin", "1234", "1234",true);
+            Cliente cliente = new Cliente(1,"isa","admin", "1234", "1234",false);
 
             Clientes clientes = new Clientes();
 

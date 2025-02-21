@@ -20,9 +20,7 @@ namespace Adm.Models
             }
             obj.setId(id + 1);
             objetos.Add(obj);
-            Salvar();
-
-            
+            Salvar();    
         }
 
         public List<T> Listar()

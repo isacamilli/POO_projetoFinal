@@ -4,7 +4,7 @@ using Adm.Models;  // Usando o namespace correto
 namespace Adm.View
 {
     public class Login{
-            private static Clientes clientes = new Clientes(); 
+        private static Clientes clientes = new Clientes(); 
         public static void CriarAdmin(){
 
             bool criado = false;
@@ -25,7 +25,7 @@ namespace Adm.View
             bool admin = false;
             foreach (Cliente i in clientes.Listar()){
                 if (i.getNome() == nome && i.getSenha() == senha){
-                    if (i.getNome() == "admin"){
+                    if (i.isAdm() == true){
                         admin = true;
                         return admin;
                     }

@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {
+    "net8.0": {
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
@@ -17,7 +17,7 @@
       },
       "Models/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
+        "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Newtonsoft.Json": "13.0.3"
         },
@@ -60,37 +60,37 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net9.0": [
+    "net8.0": [
       "Models >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\janic\\.nuget\\packages\\": {}
+    "/home/codespace/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\janic\\OneDrive\\Documenti\\Isa\\POO\\POO_projetoFinal\\adm\\view\\View.csproj",
+      "projectUniqueName": "/workspaces/POO_projetoFinal/Adm/View/View.csproj",
       "projectName": "View",
-      "projectPath": "C:\\Users\\janic\\OneDrive\\Documenti\\Isa\\POO\\POO_projetoFinal\\adm\\view\\View.csproj",
-      "packagesPath": "C:\\Users\\janic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\janic\\OneDrive\\Documenti\\Isa\\POO\\POO_projetoFinal\\adm\\view\\obj\\",
+      "projectPath": "/workspaces/POO_projetoFinal/Adm/View/View.csproj",
+      "packagesPath": "/home/codespace/.nuget/packages/",
+      "outputPath": "/workspaces/POO_projetoFinal/Adm/View/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\janic\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/codespace/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net9.0"
+        "net8.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\janic\\OneDrive\\Documenti\\Isa\\POO\\POO_projetoFinal\\adm\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\janic\\OneDrive\\Documenti\\Isa\\POO\\POO_projetoFinal\\adm\\Models\\Models.csproj"
+            "/workspaces/POO_projetoFinal/Adm/Models/Models.csproj": {
+              "projectPath": "/workspaces/POO_projetoFinal/Adm/Models/Models.csproj"
             }
           }
         }
@@ -104,12 +104,11 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
-      "net9.0": {
-        "targetAlias": "net9.0",
+      "net8.0": {
+        "targetAlias": "net8.0",
         "imports": [
           "net461",
           "net462",
@@ -126,7 +125,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
