@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "yHR7PrYSmiM=",
+  "dgSpecHash": "9eq+wjeJn54=",
   "success": true,
-  "projectFilePath": "C:\\Users\\20241014040028\\Documents\\POO_projetoFinal\\Adm\\Templates\\UI.csproj",
+  "projectFilePath": "C:\\Users\\janic\\OneDrive\\Documenti\\Isa\\POO\\POO_projetoFinal\\Adm\\Templates\\UI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\20241014040028\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\janic\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\janic\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.13\\microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
+    "C:\\Users\\janic\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.13\\microsoft.windowsdesktop.app.ref.8.0.13.nupkg.sha512",
+    "C:\\Users\\janic\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.13\\microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512",
+    "C:\\Users\\janic\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.13\\microsoft.netcore.app.host.win-x64.8.0.13.nupkg.sha512"
   ],
   "logs": []
 }
