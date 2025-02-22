@@ -4,18 +4,14 @@ namespace Adm.Templates
 {
     public class UI{
         public static void Main(){
-            Login.CriarAdmin();
+            Login_view.CriarAdmin();
             bool coiso = false;
+            Console.WriteLine("-------------------------------------");
+            Console.WriteLine("\nBem vindo ao cloudwear!");
+            Console.WriteLine("\n-------------------------------------");
 
-            while (!coiso) {
-                Console.Write("Digite o nome ou email do usuário: ");
-                string nome = Console.ReadLine();
-
-                Console.Write("Digite a senha: ");
-                string senha = Console.ReadLine();
-
-                coiso = Login.confEntrada(nome,senha);
-            }
+            Login_UI.menu_cadastro();
+            
         }
     }
 }

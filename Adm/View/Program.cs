@@ -7,7 +7,7 @@ namespace Adm.View
         public static void Main()
         {
             // Seu código aqui, por exemplo:
-            Login.CriarAdmin();
+            Login_view.CriarAdmin();
 
             Cliente cliente = new Cliente(1,"isa","admin", "1234", "1234",false);
 
@@ -15,9 +15,9 @@ namespace Adm.View
 
             clientes.Inserir(cliente);
 
-            Login.confEntrada("isa","1234");
+            Login_view.confEntrada("isa","1234");
 
-            Login.confEntrada("oi","sdjad");
+            Login_view.confEntrada("oi","sdjad");
         }
     }
 }

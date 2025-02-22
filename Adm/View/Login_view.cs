@@ -3,7 +3,7 @@ using Adm.Models;  // Usando o namespace correto
 
 namespace Adm.View
 {
-    public class Login{
+    public class Login_view{
         private static Clientes clientes = new Clientes(); 
         public static void CriarAdmin(){
 
@@ -27,15 +27,29 @@ namespace Adm.View
                 if (i.getNome() == nome && i.getSenha() == senha){
                     if (i.isAdm() == true){
                         admin = true;
+                        Console.WriteLine("\nAcesso permitido!");
+                        Console.WriteLine("Bem vindo Admin");
                         return admin;
                     }
 
-                    Console.WriteLine("Proibido acesso de cliente");
+                    Console.WriteLine("\nProibido acesso de cliente");
                     return admin;
                 }
             }
-            Console.WriteLine("Usuário não encontrado");
+            Console.WriteLine("\nUsuário não encontrado");
             return admin;
+        }
+
+        public static bool CadastroCliente(string nome, string email,string fone,string senha){
+            try{
+                Cliente_view.inserir_cliente(nome,email,fone,senha);
+                Console.WriteLine("\nCadastro completo!");
+                return true;
+            }
+            catch(IOException e){
+                Console.WriteLine(e.Message);
+                return false;
+            }
         }
         
     }
