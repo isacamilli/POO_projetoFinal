@@ -85,7 +85,7 @@ namespace Adm.Models
         public string getcor() => this.cor;
         public int get_idTipo() => this.id_tipo;
         public string getdetalhes() => this.detalhes;
-        public int get_idRoupa() => this.id_cliente;
+        public int get_idCliente() => this.id_cliente;
 
         // Método para converter cliente em dicionário
         public Dictionary<string, object> ToDict()

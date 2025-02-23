@@ -41,9 +41,11 @@ namespace Adm.View
         }
 
         public static bool CadastroCliente(string nome, string email,string fone,string senha){
+
+
             try{
+                
                 Cliente_view.inserir_cliente(nome,email,fone,senha);
-                Console.WriteLine("\nCadastro completo!");
                 return true;
             }
             catch(IOException e){

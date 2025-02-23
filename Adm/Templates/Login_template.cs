@@ -2,23 +2,54 @@ using Adm.View;
 
 namespace Adm.Templates
 {
-    public class Login_UI(){
-        public static int menu_cadastro(){
-            Console.WriteLine("\nDeseja se registrar ou cadastrar um novo usuário?");
-            Console.WriteLine("\n1 - Registrar-se");
-            Console.WriteLine("2 - Cadastrar-se");
-            Console.WriteLine("0 - Sair do sistema");
+    public class Login_UI{
+        public static void menu_cadastro(){
 
-            Console.Write("\nDigite aqui: ");
+            int numero = 1;
 
-            int numero = 0;
+            while (numero != 0){
+                Console.WriteLine("\n-------------------------------------");
+                Console.WriteLine("\nDeseja se registrar ou cadastrar um novo usuário?");
+                Console.WriteLine("\n1 - Registrar-se");
+                Console.WriteLine("2 - Cadastrar-se");
+                Console.WriteLine("0 - Sair do sistema");
 
-            while (!int.TryParse(Console.ReadLine(), out numero) || numero > 3)
-            {
-                Console.Write("\nEntrada inválida! Digite um número entre as opções: ");
+                Console.Write("\nDigite aqui: ");
+
+                if (int.TryParse(Console.ReadLine(), out numero))
+                {
+                    switch (numero)
+                    { 
+                        case 0:
+                            Console.WriteLine("\nSaindo do sistema....");
+                            break;
+
+                        case 1:
+                            bool  entrar_sistema = Login_UI.registro();
+                
+                            if (entrar_sistema){
+                            numero = Cliente_UI.Menu_cliente();
+                            }
+                            
+                            break;
+
+                        case 2:
+                            Login_UI.cadastro();
+                            break;
+                                        
+                        default:
+                            Console.WriteLine("\nEntrada inválida! Digite um número entre as opções.");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\nEntrada inválida! Digite um número.");
+                    numero = 1;
+                }
+
             }
-
-            return numero;
+            
         }
 
         public static bool registro(){
@@ -43,9 +74,27 @@ namespace Adm.Templates
 
             Console.Write("Digite o email: ");
             string email = Console.ReadLine();
+
+            // verificar numero
+
+            bool verifNum = false;
+            string fone = "";
             
-            Console.Write("Digite o fone(só números): ");
-            string fone = Console.ReadLine();
+            while (!verifNum){
+
+                Console.Write("Digite o fone(só números): ");
+                fone = Console.ReadLine();
+
+                verifNum = fone.All(char.IsDigit);
+
+                if (!verifNum){
+                    Console.WriteLine("O número não pode conter caracteres");
+                }
+                else{
+                    break;
+                }
+
+            }
             
             Console.Write("Digite o senha: ");
             string senha = Console.ReadLine();
