@@ -42,16 +42,34 @@ namespace Adm.Templates
                             break;
 
                         case 2:
-                            
-                            int id_escolhido = listarId();
 
-                            Console.WriteLine("\nDeseja ver as roupas do cliente?");
-                            string escolha = Console.ReadLine(); 
-                            if (escolha.ToLower() == "sim"){
-                                
+                            Console.Write("\nDigite o nome do usuário que deseja escolher: ");
+
+                            string nome = Console.ReadLine();
+                            
+                            int id_escolhido = listarId(nome);
+
+                            if (id_escolhido != 0){
+                                Console.Write("\nDeseja ver as roupas do cliente?");
+                                string escolha = Console.ReadLine(); 
+                                if (escolha.ToLower() == "sim"){
+                                    Roupa_UI.lista_roupas_id(id_escolhido);
+                                }
                             }
 
                             break;
+
+                        case 3:
+                            excluir_cliente();
+
+                            break;
+
+                        case 4:
+                            numero = Roupa_UI.menu_armario();
+                            break;
+
+                        case 6:
+                            return 1;
                                         
                         default:
                             Console.WriteLine("\nEntrada inválida! Digite um número entre as opções.");
@@ -64,7 +82,7 @@ namespace Adm.Templates
                     numero = 1;
                 }
             }
-            return 1;
+            return 0;
         }
 
         public static void listar_clientes(){
@@ -73,12 +91,9 @@ namespace Adm.Templates
             }
         }
 
-        public static int listarId(){
-            Console.Write("Digite o nome do usuário que deseja escolher: ");
+        public static int listarId(string nome){
 
-            string nome = Console.ReadLine();
-
-            foreach(Cliente i in listar_clientes()){
+            foreach(Cliente i in Cliente_view.listar_clientes()){
                 if (nome == i.getNome() ){
                     Console.WriteLine($"\n{i}");
 
@@ -90,5 +105,16 @@ namespace Adm.Templates
             return 0;
 
         }
+
+        public static void excluir_cliente(){
+            Console.Write("\nDigite o nome do usuário que deseja excluir: ");
+            string nome = Console.ReadLine();
+
+            int id_escolhido = listarId(nome);
+
+            Cliente_view.excluir_cliente(id_escolhido);            
+        }
+
+
     }
 }
