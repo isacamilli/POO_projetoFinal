@@ -56,6 +56,12 @@ namespace Adm.Templates{
 
                         case 3:
                             
+                            Console.WriteLine("\n");
+                            TipoRoupa_UI.listar_TipoR();
+
+
+
+                            break;
 
                         case 4:
                             return 1;
@@ -98,6 +104,7 @@ namespace Adm.Templates{
                 Console.WriteLine("Armário vazio");
             }
         }
+
 
     }
 }

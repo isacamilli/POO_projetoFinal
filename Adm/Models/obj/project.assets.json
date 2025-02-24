@@ -55,24 +55,27 @@
     ]
   },
   "packageFolders": {
-    "/home/codespace/.nuget/packages/": {}
+    "C:\\Users\\20241014040028.IFRN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/workspaces/POO_projetoFinal/Adm/Models/Models.csproj",
+      "projectUniqueName": "C:\\Users\\20241014040028.IFRN\\Documents\\POO\\POO_projetoFinal\\adm\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "/workspaces/POO_projetoFinal/Adm/Models/Models.csproj",
-      "packagesPath": "/home/codespace/.nuget/packages/",
-      "outputPath": "/workspaces/POO_projetoFinal/Adm/Models/obj/",
+      "projectPath": "C:\\Users\\20241014040028.IFRN\\Documents\\POO\\POO_projetoFinal\\adm\\Models\\Models.csproj",
+      "packagesPath": "C:\\Users\\20241014040028.IFRN\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\20241014040028.IFRN\\Documents\\POO\\POO_projetoFinal\\adm\\Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/codespace/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\20241014040028.IFRN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -117,7 +120,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
