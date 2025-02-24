@@ -1,4 +1,3 @@
-import streamlit as st
 from ..Models.clima import Periodo_Clima, Climas
 
 class ClimaView:
@@ -21,7 +20,7 @@ class ClimaView:
                 "periodo": periodo_clima.periodo
             }
 
-            Climas.salvar_clima(periodo_clima)
+            Climas.salvar_clima_em_json(periodo_clima)
             return clima_data
         else:
             return "❌ Não foi possível obter os dados climáticos. Verifique a cidade e tente novamente."

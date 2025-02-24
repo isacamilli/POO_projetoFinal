@@ -11,9 +11,9 @@ class Login_View:
                     st.rerun()
                 else:
                     st.session_state.page = 'home'
+                    st.session_state.user = cliente
+                    st.success(f"bem vindo, {cliente.nome}")
                     st.rerun()
-                st.session_state.user = cliente
-                st.success(f"bem vindo, {cliente.nome}")
 
                 return
             

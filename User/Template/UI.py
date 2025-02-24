@@ -1,9 +1,11 @@
 import streamlit as st
 from collections import defaultdict
-from User.View.login_view import Login_View
-from User.View.roupa_view import RoupaView
+from ..View.login_view import Login_View
 from ..Template.clima_ui import Mostrar_clima
+from .roupa_ui import Mostrar_roupas
+from .cadastro_roupa_ui import CadastroRoupa
 # from ..Template.adm_ui import AdmUI
+from ..View.combinacao_view import CombinacaoView
 
 class UI:
     @classmethod
@@ -22,13 +24,10 @@ class UI:
         )
 
         match st.session_state.page:
-                
             case "home":
                 cls.__cliente()
-                
             case "login":
                 cls.__login()
-
             # case "adm":
             #     AdmUI.adm()
 
@@ -57,7 +56,7 @@ class UI:
 
     @classmethod
     def __cliente(cls):
-        section = st.sidebar.selectbox("Menu", ["Home", "Armário", "Cadastro de Roupa"])
+        section = st.sidebar.selectbox("Menu", ["Home", "Armário", "Cadastro de Roupa", "Combinações"])
 
         if section == "Home":
             cls.__home()
@@ -65,6 +64,8 @@ class UI:
             cls.__armario()
         elif section == "Cadastro de Roupa":
             cls.__cadastro_roupa()
+        elif section == "Combinações":
+            cls.__combinacao()
 
         if st.sidebar.button("❌ Sair"):
             st.session_state.page = 'login'
@@ -80,29 +81,32 @@ class UI:
     def __armario(cls):
         st.markdown("<h1 style='text-align: center;'>🌤️ Cloud Wear</h1>", unsafe_allow_html=True)
         st.header("Roupas no armário")
-
-        roupas = RoupaView.armario(1)  # Obtendo as roupas do usuário
-        roupas_por_tipo = defaultdict(list)
-
-        for roupa in roupas:
-            roupas_por_tipo[roupa.tipo].append(roupa)
-
-        for tipo, lista_roupas in roupas_por_tipo.items():
-            st.subheader(f"🧥 {tipo}")
-            for roupa in lista_roupas:
-                with st.expander(roupa.nome):
-                    st.text(f"Cor: {roupa.cor}")
-                    st.text(f"Detalhes: {roupa.detalhes}")
+        Mostrar_roupas.run()
 
     @classmethod
     def __cadastro_roupa(cls):
         st.markdown("<h1 style='text-align: center;'>🌤️ Cloud Wear</h1>", unsafe_allow_html=True)
         st.header("Cadastrar Nova Roupa")
+        CadastroRoupa.run()
 
-        nome_roupa = st.text_input("Nome da Roupa")
-        cor_roupa = st.text_input("Cor da Roupa")
-        tipo_roupa = st.text_input("Tipo da Roupa")
-        desc_roupa = st.text_input("Descrição da Roupa")
-
-        if st.button("Cadastrar"):
-            RoupaView.cadastrar_roupa(nome_roupa, cor_roupa, int(tipo_roupa), desc_roupa, 0, 1)
+    @classmethod
+    def __combinacao(cls):
+        st.markdown("<h1 style='text-align: center;'>Área de Combinações</h1>", unsafe_allow_html=True)
+        st.header("Sugestões de Combinações")
+        id_cliente = st.session_state.user.id
+        
+        # Campo de entrada para a mensagem
+        mensagem = st.text_input("Digite sua mensagem", key="mensagem_combinacao")
+        
+        # Botão para buscar a resposta
+        if st.button("Buscar Combinação"):
+            if mensagem.strip():  # Verifica se a mensagem não está vazia
+                with st.spinner("Gerando combinação..."):  # Mostra um spinner enquanto a requisição está em andamento
+                    try:
+                        resposta = CombinacaoView.obter_resposta(mensagem, id_cliente)
+                        st.success("Combinação gerada com sucesso!")
+                        st.write(resposta)  # Exibe a resposta na interface
+                    except Exception as e:
+                        st.error(f"Erro ao gerar combinação: {e}")
+            else:
+                st.warning("Por favor, digite uma mensagem antes de buscar a combinação.")

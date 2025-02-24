@@ -101,46 +101,31 @@ class Climas:
   objetos = []
 
   @staticmethod
-  def salvar_clima(Periodo_Clima, filename="Data/clima.json"):
+  def salvar_clima_em_json(Periodo_Clima, filename="Data/clima.json"):
     directory = os.path.dirname(filename)
     if not os.path.exists(directory):
-      os.makedirs(directory)
+        os.makedirs(directory)
 
     if os.path.exists(filename):
-      with open(filename, 'r', encoding='utf-8') as f:
-        clima_dict = json.load(f)
-        if not isinstance(clima_dict, dict):
-          clima_dict = {} 
+        with open(filename, 'r', encoding='utf-8') as f:
+            clima_dict = json.load(f)
+            if not isinstance(clima_dict, dict):
+                clima_dict = {} 
     else:
-      clima_dict = {}
+        clima_dict = {}
 
-    # Verifica se a cidade já existe
-    if Periodo_Clima.cidade in clima_dict:
-      # Se a cidade já existe, mantém o mesmo id e atualiza os dados
-      clima_dict[Periodo_Clima.cidade]["clima"] = Periodo_Clima.clima
-      clima_dict[Periodo_Clima.cidade]["pais"] = Periodo_Clima.pais
-      clima_dict[Periodo_Clima.cidade]["data"] = Periodo_Clima.data.strftime('%d/%m/%Y %H:%M')
-      clima_dict[Periodo_Clima.cidade]["temperatura"] = Periodo_Clima.temperatura
-      clima_dict[Periodo_Clima.cidade]["sensacao_termica"] = Periodo_Clima.sensacao_termica
-      clima_dict[Periodo_Clima.cidade]["periodo"] = Periodo_Clima.periodo
-    else:
-      # Caso a cidade não exista, cria um novo id e adiciona os dados
-      last_id = max([clima['id'] for clima in clima_dict.values()], default=0)
-      new_id = last_id + 1
+    clima_data = {
+       "id": Periodo_Clima.id,
+      "cidade": Periodo_Clima.cidade,
+      "pais": Periodo_Clima.pais,
+      "data": Periodo_Clima.data.strftime('%d/%m/%Y %H:%M'),
+      "clima": Periodo_Clima.clima,
+      "periodo": Periodo_Clima.periodo,
+      "temperatura": Periodo_Clima.temperatura,
+      "sensacao_termica": Periodo_Clima.sensacao_termica
+    }
 
-      clima_data = {
-          "id": new_id,
-          "cidade": Periodo_Clima.cidade,
-          "pais": Periodo_Clima.pais,
-          "data": Periodo_Clima.data.strftime('%d/%m/%Y %H:%M'),
-          "clima": Periodo_Clima.clima,
-          "periodo": Periodo_Clima.periodo,
-          "temperatura": Periodo_Clima.temperatura,
-          "sensacao_termica": Periodo_Clima.sensacao_termica
-      }
+    clima_dict[Periodo_Clima.cidade] = clima_data
 
-      clima_dict[Periodo_Clima.cidade] = clima_data
-
-    # Salva os dados (seja alterados ou novos)
     with open(filename, 'w', encoding='utf-8') as f:
-      json.dump(clima_dict, f, ensure_ascii=False, indent=4)
+        json.dump(clima_dict, f, ensure_ascii=False, indent=4)

@@ -1,5 +1,5 @@
 import streamlit as st
-from User.View.clima_view import ClimaView
+from ..View.clima_view import ClimaView
 
 class Mostrar_clima:
     @classmethod
@@ -16,6 +16,4 @@ class Mostrar_clima:
                 st.write(f" **Sensação Térmica:** {clima_data['sensacao_termica']}°C")
                 st.write(f" **Período:** {clima_data['periodo']}")
             else:
-                st.warning(clima_data)  # Exibe a mensagem de erro
-        else:
-            st.warning("Digite uma cidade")
+                st.warning(clima_data)
