@@ -36,7 +36,26 @@ namespace Adm.Templates{
 
                         case 1 :
                             Console.WriteLine("\n");
+                            listar_roupas();
                             break;
+
+                        case 2 :
+
+                            Console.Write("\nDigite o nome do usuário que deseja escolher: ");
+
+                            string nome = Console.ReadLine();
+                            
+                            int id_escolhido = Cliente_UI.listarId(nome);
+
+                            if (id_escolhido != 0){
+                                Console.WriteLine("\n")
+                                Roupa_UI.lista_roupas_id(id_escolhido);
+                            }
+
+                            break;
+
+                        case 3:
+                            
 
                         case 4:
                             return 1;

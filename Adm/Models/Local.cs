@@ -53,7 +53,7 @@ namespace Adm.Models
         // Método ToString
         public override string ToString()
         {
-            return $"Cliente: id={this.id}, cidade={this.cidade}";
+            return $"Local: id={this.id}, cidade={this.cidade}";
         }
     }
 }

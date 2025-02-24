@@ -50,9 +50,10 @@ namespace Adm.Templates
                             int id_escolhido = listarId(nome);
 
                             if (id_escolhido != 0){
-                                Console.Write("\nDeseja ver as roupas do cliente?");
+                                Console.Write("\nDeseja ver as roupas do cliente? ");
                                 string escolha = Console.ReadLine(); 
                                 if (escolha.ToLower() == "sim"){
+                                    Console.WriteLine("\n");
                                     Roupa_UI.lista_roupas_id(id_escolhido);
                                 }
                             }
@@ -100,8 +101,6 @@ namespace Adm.Templates
                     return i.getId();
                 }
             }
-
-            Console.WriteLine("\nUsuário não encontrado.");
             return 0;
 
         }

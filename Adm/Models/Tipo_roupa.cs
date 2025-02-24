@@ -65,7 +65,7 @@ namespace Adm.Models
         // Método ToString
         public override string ToString()
         {
-            return $"Cliente: id={this.id}, nome={this.nome}, descrição={this.descricao}";
+            return $"Tipo Roupa: id={this.id}, nome={this.nome}, descrição={this.descricao}";
         }
     }
 }
