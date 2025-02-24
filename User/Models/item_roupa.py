@@ -1,6 +1,6 @@
-from roupa import Roupas
 import json
 import os
+from .roupa import Roupas
 
 class Item_roupa:
     def __init__(self,id:int,lista_id_roupas:list):

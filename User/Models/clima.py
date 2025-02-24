@@ -97,7 +97,7 @@ class Periodo_Clima:
     self.__periodo = value
 
 
-class climas:
+class Climas:
   objetos = []
 
   @staticmethod

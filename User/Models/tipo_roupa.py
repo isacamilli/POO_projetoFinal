@@ -80,29 +80,33 @@ class Tipos_roupas:
             cls.salvar()
 
     @classmethod
-    def excluir(cls,obj):
+    def excluir(cls, obj):
         x = cls.listar_id(obj.id)
-        if x != None:
-            cls.objetos(x)
+        if x:
+            cls.objetos.remove(x)
             cls.salvar()
 
     @classmethod
     def salvar(cls):
+        if not cls.objetos:
+            print("Nenhum tipo de roupa para salvar.")
+            return
+
         if not os.path.exists("Data"):
-            os.makedirs('Data')
+            os.makedirs("Data")
+        
         with open("Data/tipo_roupa.json", mode="w") as arquivo:
-            dados = [Tipo_roupa.to_dict() for Tipo_roupa in cls.objetos]
-            print(dados)
+            dados = [tipo.to_dict() for tipo in cls.objetos]
             json.dump(dados, arquivo)
 
     @classmethod
     def abrir(cls):
         cls.objetos = []
         try:
-            with open("Data/tipo_roupa.json") as arquivo:
+            with open("Data/tipo_roupa.json", mode="r") as arquivo:
                 tipo_json = json.load(arquivo)
                 for obj in tipo_json:
-                    t_r = Tipo_roupa(obj["id"],obj["nome"],obj["descricao"])
+                    t_r = Tipo_roupa(obj["id"], obj["nome"], obj["descricao"])
                     cls.objetos.append(t_r)
-        
-        except FileNotFoundError: pass
+        except FileNotFoundError:
+            pass

@@ -114,11 +114,14 @@ class Roupas:
             cls.salvar()
 
     @classmethod
-    def excluir(cls,obj):
-        x = cls.listar_id(obj.id)
-        if x != None:
-            cls.objetos.remove(x)
+    def excluir(cls, id):
+        cls.abrir()
+        roupa = cls.listar_id(id)
+        if roupa is not None:
+            cls.objetos.remove(roupa)
             cls.salvar()
+            return True
+        return False
 
     @classmethod
     def salvar(cls):
