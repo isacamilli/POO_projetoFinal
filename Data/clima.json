@@ -1,0 +1,32 @@
+{
+    "natal": {
+        "id": 1,
+        "cidade": "natal",
+        "pais": "BR",
+        "data": "24/02/2025 19:10",
+        "clima": "algumas nuvens",
+        "periodo": "Inverno",
+        "temperatura": 28.12,
+        "sensacao_termica": 30.76
+    },
+    "parnamirim": {
+        "id": 1,
+        "cidade": "parnamirim",
+        "pais": "BR",
+        "data": "24/02/2025 17:54",
+        "clima": "algumas nuvens",
+        "periodo": "Inverno",
+        "temperatura": 28.94,
+        "sensacao_termica": 32.6
+    },
+    "Berlim": {
+        "id": 1,
+        "cidade": "Berlim",
+        "pais": "DE",
+        "data": "24/02/2025 19:07",
+        "clima": "céu limpo",
+        "periodo": "Inverno",
+        "temperatura": 10.69,
+        "sensacao_termica": 9.62
+    }
+}
