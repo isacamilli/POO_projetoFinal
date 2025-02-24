@@ -48,7 +48,7 @@ namespace Adm.Templates{
                             int id_escolhido = Cliente_UI.listarId(nome);
 
                             if (id_escolhido != 0){
-                                Console.WriteLine("\n")
+                                Console.WriteLine("\n");
                                 Roupa_UI.lista_roupas_id(id_escolhido);
                             }
 

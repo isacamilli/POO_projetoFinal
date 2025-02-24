@@ -91,32 +91,35 @@
     ]
   },
   "packageFolders": {
-    "/home/codespace/.nuget/packages/": {}
+    "C:\\Users\\20241014040028.IFRN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/workspaces/POO_projetoFinal/Adm/Templates/UI.csproj",
+      "projectUniqueName": "C:\\Users\\20241014040028.IFRN\\Documents\\POO\\POO_projetoFinal\\adm\\templates\\UI.csproj",
       "projectName": "UI",
-      "projectPath": "/workspaces/POO_projetoFinal/Adm/Templates/UI.csproj",
-      "packagesPath": "/home/codespace/.nuget/packages/",
-      "outputPath": "/workspaces/POO_projetoFinal/Adm/Templates/obj/",
+      "projectPath": "C:\\Users\\20241014040028.IFRN\\Documents\\POO\\POO_projetoFinal\\adm\\templates\\UI.csproj",
+      "packagesPath": "C:\\Users\\20241014040028.IFRN\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\20241014040028.IFRN\\Documents\\POO\\POO_projetoFinal\\adm\\templates\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/codespace/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\20241014040028.IFRN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/workspaces/POO_projetoFinal/Adm/View/View.csproj": {
-              "projectPath": "/workspaces/POO_projetoFinal/Adm/View/View.csproj"
+            "C:\\Users\\20241014040028.IFRN\\Documents\\POO\\POO_projetoFinal\\adm\\View\\View.csproj": {
+              "projectPath": "C:\\Users\\20241014040028.IFRN\\Documents\\POO\\POO_projetoFinal\\adm\\View\\View.csproj"
             }
           }
         }
@@ -151,7 +154,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

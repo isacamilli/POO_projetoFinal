@@ -9,9 +9,9 @@ namespace Adm.Templates
 
             while (numero != 0){
                 Console.WriteLine("\n-------------------------------------");
-                Console.WriteLine("\nDeseja se registrar ou cadastrar um novo usuário?");
-                Console.WriteLine("\n1 - Registrar-se");
-                Console.WriteLine("2 - Cadastrar-se");
+                Console.WriteLine("\nDeseja entrar ou registrar um novo usuário?");
+                Console.WriteLine("\n1 - Entrar");
+                Console.WriteLine("2 - Registrar-se");
                 Console.WriteLine("0 - Sair do sistema");
 
                 Console.Write("\nDigite aqui: ");

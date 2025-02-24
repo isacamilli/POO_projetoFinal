@@ -69,6 +69,8 @@ namespace Adm.Templates
                             numero = Roupa_UI.menu_armario();
                             break;
 
+                        
+
                         case 6:
                             return 1;
                                         

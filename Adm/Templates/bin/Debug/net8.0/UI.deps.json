@@ -27,10 +27,7 @@
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
-          "Models.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Models.dll": {}
         }
       },
       "View/1.0.0": {
@@ -38,10 +35,7 @@
           "Models": "1.0.0"
         },
         "runtime": {
-          "View.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "View.dll": {}
         }
       }
     }
