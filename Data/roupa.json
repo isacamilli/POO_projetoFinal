@@ -5,7 +5,7 @@
     "cor": "preta",
     "id_tipo": 1,
     "detalhes": "Simples sem estampa",
-    "id_cliente": 1
+    "id_cliente": 2
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "cor": "Jeans claro",
     "id_tipo": 2,
     "detalhes": "Jeans claro sem rasgos",
-    "id_cliente": 1
+    "id_cliente": 2
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "cor": "branca",
     "id_tipo": 1,
     "detalhes": "camisa regata lisa",
-    "id_cliente": 1
+    "id_cliente": 2
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "cor": "azul",
     "id_tipo": 1,
     "detalhes": "camisa manga longa lisa",
-    "id_cliente": 1
+    "id_cliente": 2
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "cor": "Amarelo",
     "id_tipo": 3,
     "detalhes": "Camisa manga curta com estampa simples na frente",
-    "id_cliente": 1
+    "id_cliente": 2
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@
     "cor": "Verde",
     "id_tipo": 4,
     "detalhes": "Cal\u00e7\u00e3o leve e confort\u00e1vel para sair ou ficar em casa",
-    "id_cliente": 1
+    "id_cliente": 2
   },
   {
     "id": 7,
@@ -53,6 +53,6 @@
     "cor": "preto",
     "id_tipo": 5,
     "detalhes": "Vers\u00e1til e simples",
-    "id_cliente": 1
+    "id_cliente": 2
   }
 ]

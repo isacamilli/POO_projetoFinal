@@ -6,7 +6,7 @@
             1,
             2
         ],
-        "id_cliente": 1
+        "id_cliente": 2
     },
     {
         "id": 2,
@@ -20,7 +20,7 @@
             6,
             7
         ],
-        "id_cliente": 1
+        "id_cliente": 2
     },
     {
         "id": 3,
@@ -34,7 +34,7 @@
             6,
             7
         ],
-        "id_cliente": 1
+        "id_cliente": 2
     },
     {
         "id": 4,
@@ -47,7 +47,7 @@
             6,
             7
         ],
-        "id_cliente": 1
+        "id_cliente": 2
     },
     {
         "id": 5,
@@ -59,7 +59,7 @@
             6,
             7
         ],
-        "id_cliente": 1
+        "id_cliente": 2
     },
     {
         "id": 6,
@@ -70,7 +70,7 @@
             4,
             7
         ],
-        "id_cliente": 1
+        "id_cliente": 2
     },
     {
         "id": 7,
@@ -83,6 +83,6 @@
             6,
             7
         ],
-        "id_cliente": 1
+        "id_cliente": 2
     }
 ]

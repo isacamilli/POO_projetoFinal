@@ -26,11 +26,11 @@ class Login_View:
                 liberado = False
                 st.error("Usuário já existente")
 
-        if Username.lower() in ["adm", "admin", "administrador"]:
+        if Username in ["adm", "ADM", "Adm", "admin", "ADMIN", "Admin", "administrador", "ADMINISTRADOR", "Administrador"]:
             liberado = False
             st.error("Nome de usuário inapropriado")
 
-        if any(65 <= ord(c) <= 90 or 97 <= ord(c) <= 122 for c in telefone):
+        if any(65 <= ord(c) <= 90 or 97 <= ord(c) <= 122 for c in telefone):    #ord
             liberado = False
             st.error("Telefone não pode conter letras")
 
