@@ -2,19 +2,14 @@ import streamlit as st
 
 class AdmUI:
     @classmethod
-    def adm(cls):
-        st.write("adm")
-        section = st.sidebar.selectbox("Menu Adm",("Clientes", "Roupas"))
+    def run(cls):
+        # Título centralizado
+        st.markdown("<h1 style='text-align: center;'>🌤️ Cloud Wear</h1>", unsafe_allow_html=True)
 
-        match section:
-            case "Clientes":
-                st.header("Clientes ativos")
-                st.write("---")
+        for _ in range(10):
+            st.write("")
 
-            case "Roupas":
-                st.header("Clientes ativos")
-                st.write("---")
-
+        st.markdown("<h2 style='text-align: center;'>Admin logado</h2>", unsafe_allow_html=True)
 
         if st.sidebar.button("❌ Sair"):
             st.session_state.page = 'login'

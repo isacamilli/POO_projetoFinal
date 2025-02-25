@@ -1,11 +1,9 @@
 import streamlit as st
-from collections import defaultdict
 from ..View.login_view import Login_View
-from ..Template.clima_ui import Mostrar_clima
+from .clima_ui import Mostrar_clima
 from .roupa_ui import Mostrar_roupas
 from .cadastro_roupa_ui import CadastroRoupa
-# from ..Template.adm_ui import AdmUI
-from ..View.combinacao_view import CombinacaoView
+from .adm_ui import AdmUI
 
 class UI:
     @classmethod
@@ -23,13 +21,24 @@ class UI:
             initial_sidebar_state="expanded"
         )
 
+        cls.__criar_admin_padrao()
+
         match st.session_state.page:
             case "home":
                 cls.__cliente()
+                
             case "login":
                 cls.__login()
-            # case "adm":
-            #     AdmUI.adm()
+                
+            case "admin":
+                AdmUI.run()
+
+    @classmethod
+    def __criar_admin_padrao(cls):
+        admin_existe = Login_View.verificar_admin_existente("admin", "admin")
+        
+        if not admin_existe:
+            Login_View.criar_adm("admin", "admin", "1234", "1234", True)
 
     @classmethod
     def __login(cls):
@@ -56,7 +65,7 @@ class UI:
 
     @classmethod
     def __cliente(cls):
-        section = st.sidebar.selectbox("Menu", ["Home", "Armário", "Cadastro de Roupa", "Combinações"])
+        section = st.sidebar.selectbox("Menu", ["Home", "Armário", "Cadastro de Roupa"])
 
         if section == "Home":
             cls.__home()
@@ -64,8 +73,6 @@ class UI:
             cls.__armario()
         elif section == "Cadastro de Roupa":
             cls.__cadastro_roupa()
-        elif section == "Combinações":
-            cls.__combinacao()
 
         if st.sidebar.button("❌ Sair"):
             st.session_state.page = 'login'
@@ -88,25 +95,3 @@ class UI:
         st.markdown("<h1 style='text-align: center;'>🌤️ Cloud Wear</h1>", unsafe_allow_html=True)
         st.header("Cadastrar Nova Roupa")
         CadastroRoupa.run()
-
-    @classmethod
-    def __combinacao(cls):
-        st.markdown("<h1 style='text-align: center;'>Área de Combinações</h1>", unsafe_allow_html=True)
-        st.header("Sugestões de Combinações")
-        id_cliente = st.session_state.user.id
-        
-        # Campo de entrada para a mensagem
-        mensagem = st.text_input("Digite sua mensagem", key="mensagem_combinacao")
-        
-        # Botão para buscar a resposta
-        if st.button("Buscar Combinação"):
-            if mensagem.strip():  # Verifica se a mensagem não está vazia
-                with st.spinner("Gerando combinação..."):  # Mostra um spinner enquanto a requisição está em andamento
-                    try:
-                        resposta = CombinacaoView.obter_resposta(mensagem, id_cliente)
-                        st.success("Combinação gerada com sucesso!")
-                        st.write(resposta)  # Exibe a resposta na interface
-                    except Exception as e:
-                        st.error(f"Erro ao gerar combinação: {e}")
-            else:
-                st.warning("Por favor, digite uma mensagem antes de buscar a combinação.")
