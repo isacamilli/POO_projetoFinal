@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "clima": "30\u00baC",
+        "id_itens": [
+            1,
+            2
+        ],
+        "id_cliente": 2
+    },
+    {
+        "id": 2,
+        "clima": "28.12\u00b0C (Sensa\u00e7\u00e3o: 30.76\u00b0C)",
+        "id_itens": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ],
+        "id_cliente": 2
+    },
+    {
+        "id": 3,
+        "clima": "28.12\u00b0C (Sensa\u00e7\u00e3o: 30.76\u00b0C)",
+        "id_itens": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ],
+        "id_cliente": 2
+    },
+    {
+        "id": 4,
+        "clima": "28.12\u00b0C (Sensa\u00e7\u00e3o: 30.76\u00b0C)",
+        "id_itens": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+        ],
+        "id_cliente": 2
+    },
+    {
+        "id": 5,
+        "clima": "28.12\u00b0C (Sensa\u00e7\u00e3o: 30.76\u00b0C)",
+        "id_itens": [
+            1,
+            2,
+            3,
+            6,
+            7
+        ],
+        "id_cliente": 2
+    },
+    {
+        "id": 6,
+        "clima": "10.69\u00b0C (Sensa\u00e7\u00e3o: 9.62\u00b0C)",
+        "id_itens": [
+            1,
+            2,
+            4,
+            7
+        ],
+        "id_cliente": 2
+    },
+    {
+        "id": 7,
+        "clima": "28.12\u00b0C (Sensa\u00e7\u00e3o: 30.76\u00b0C)",
+        "id_itens": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+        ],
+        "id_cliente": 2
+    },
+    {
+        "id": 8,
+        "clima": "27.14\u00b0C (Sensa\u00e7\u00e3o: 28.92\u00b0C)",
+        "id_itens": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ],
+        "id_cliente": 2
+    }
+]
