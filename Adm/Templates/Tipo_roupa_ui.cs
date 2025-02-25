@@ -154,6 +154,8 @@ namespace Adm.Templates {
 
             TipoR_view.att_TipoRoupa(id_escolhido,novo_nome,nova_desc);
 
+            Console.WriteLine("\nCliente atualizado com sucesso");
+
         }
 
     }
