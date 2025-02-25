@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eVKd404FoOQ=",
+  "dgSpecHash": "BBIEfcupSFw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\20241014040028.IFRN\\Documents\\POO\\POO_projetoFinal\\adm\\templates\\UI.csproj",
+  "projectFilePath": "C:\\Users\\janic\\OneDrive\\Documenti\\Isa\\POO\\POO_projetoFinal\\adm\\templates\\UI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\20241014040028.IFRN\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\janic\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

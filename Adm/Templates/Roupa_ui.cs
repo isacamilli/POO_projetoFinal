@@ -56,10 +56,14 @@ namespace Adm.Templates{
 
                         case 3:
                             
-                            Console.WriteLine("\n");
-                            TipoRoupa_UI.listar_TipoR();
+                            int num = TipoRoupa_UI.listar_TipoR();
 
+                            if (num>0){
+                                Console.Write("\nDigite o nome do tipo que quer mostrar: ");
+                                nome = Console.ReadLine();
 
+                                TipoRoupa_UI.listar_roupas_tipo(nome);
+                            }
 
                             break;
 
@@ -83,9 +87,12 @@ namespace Adm.Templates{
         }
 
         public static void listar_roupas(){
+            int num = 0;
             foreach (Roupa i in Roupa_view.listar_roupas()){
                 Console.WriteLine(i);
+                num++;
             }
+            if (num == 0) Console.WriteLine("Nenhuma roupa cadastrada no sistema");
         }
 
         public static void lista_roupas_id(int id){

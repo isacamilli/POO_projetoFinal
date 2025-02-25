@@ -15,6 +15,7 @@ namespace Adm.Models
         {
             setId(id);
             setNome(nome);
+            setDescricao(descricao);
         }
 
         // Métodos setters com validação

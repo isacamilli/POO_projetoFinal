@@ -21,7 +21,7 @@ namespace Adm.Templates
                     switch (numero)
                     { 
                         case 0:
-                            Console.WriteLine("\nSaindo do sistema....");
+                        return;
                             break;
 
                         case 1:

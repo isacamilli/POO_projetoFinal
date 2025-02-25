@@ -57,6 +57,7 @@ namespace Adm.Templates
                                     Roupa_UI.lista_roupas_id(id_escolhido);
                                 }
                             }
+                            else Console.WriteLine("\nUsuário não encontrado");
 
                             break;
 
@@ -69,7 +70,9 @@ namespace Adm.Templates
                             numero = Roupa_UI.menu_armario();
                             break;
 
-                        
+                        case 5:
+                            numero = TipoRoupa_UI.menu_tipoR();
+                            break;
 
                         case 6:
                             return 1;

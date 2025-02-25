@@ -24,11 +24,16 @@ namespace Adm.View
         public static bool confEntrada(string nome, string senha){
             bool admin = false;
             foreach (Cliente i in clientes.Listar()){
-                if (i.getNome() == nome && i.getSenha() == senha){
-                    if (i.isAdm() == true){
-                        admin = true;
-                        Console.WriteLine("\nAcesso permitido!");
-                        Console.WriteLine("Bem vindo Admin");
+                if (i.getNome().ToLower() == nome.ToLower()){
+                    if (i.getSenha() == senha){
+                        if (i.isAdm() == true){
+                            admin = true;
+                            Console.WriteLine("\nAcesso permitido!");
+                            Console.WriteLine("Bem vindo Admin");
+                            return admin;
+                        }
+                    } else {
+                        Console.WriteLine("\nSenha incorreta");
                         return admin;
                     }
 

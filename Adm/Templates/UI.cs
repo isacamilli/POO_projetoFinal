@@ -10,6 +10,8 @@ namespace Adm.Templates
 
             Login_UI.menu_cadastro();
 
+            Console.WriteLine("\nSaindo do sistema....");
+
         }
     }
 }
