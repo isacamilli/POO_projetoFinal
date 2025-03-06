@@ -11,7 +11,7 @@ class CombinacaoView:
         genai.configure(api_key="AIzaSyB_W0Q1SLRZ2bs_TM3BoKgfzD11FOMXEoU")
 
         try:
-            model = genai.GenerativeModel('gemini-pro')
+            model = genai.GenerativeModel('gemini-1.5-pro-latest')
 
             roupas_usuario = Roupas.listar()
             roupas_usuario = [roupa for roupa in roupas_usuario if roupa.id_cliente == id_cliente]

@@ -98,5 +98,18 @@
             7
         ],
         "id_cliente": 2
+    },
+    {
+        "id": 9,
+        "clima": "27.12\u00b0C (Sensa\u00e7\u00e3o: 29.81\u00b0C)",
+        "id_itens": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+        ],
+        "id_cliente": 2
     }
 ]
